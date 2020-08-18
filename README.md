@@ -30,3 +30,19 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## RoadMap
+- [ ] 头部
+    - [ ] logo
+    - [ ] 皮肤
+    - [ ] 布局
+    - [ ] 设置
+- [ ] 左侧
+    - [ ] 用户
+    - [ ] 歌单
+    - [ ] 封面和歌词
+- [ ] 底部
+    - [ ] 控制
+- [ ] 持续集成
+    - [ ] github page
+    - [ ] 服务器

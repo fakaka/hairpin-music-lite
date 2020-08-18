@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <music-header></music-header>
         <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
@@ -7,6 +8,16 @@
         <router-view />
     </div>
 </template>
+
+<script>
+import MusicHeader from './layout/header'
+export default {
+    name: 'app',
+    components: {
+        MusicHeader
+    }
+}
+</script>
 
 <style lang="scss">
 #app {
