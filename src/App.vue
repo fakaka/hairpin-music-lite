@@ -1,42 +1,58 @@
 <template>
     <div id="app">
         <music-header></music-header>
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
+        <div class="main">
+            <music-aside></music-aside>
+            <div class="content">
+                <router-view />
+            </div>
+            <music-playing></music-playing>
         </div>
-        <router-view />
+        <music-footer></music-footer>
     </div>
 </template>
 
 <script>
 import MusicHeader from './layout/header'
+import MusicAside from './layout/aside'
+import MusicPlaying from './layout/playing'
+import MusicFooter from './layout/footer'
+
 export default {
     name: 'app',
     components: {
-        MusicHeader
+        MusicHeader,
+        MusicAside,
+        MusicPlaying,
+        MusicFooter
     }
 }
 </script>
 
 <style lang="scss">
+@import url('./assets/app.scss');
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+
+    height: 100%;
+    width: 100%;
     color: $main-color;
-}
+    display: flex;
+    flex-direction: column;
 
-#nav {
-    padding: 30px;
+    .main {
+        flex-grow: 1;
+        display: flex;
+        height: calc(100% - 100px);
 
-    a {
-        font-weight: bold;
-        color: #2c3e50;
-
-        &.router-link-exact-active {
-            color: #42b983;
+        .content {
+            flex-grow: 1;
+            border-left: 1px solid;
+            border-right: 1px solid;
         }
     }
 }

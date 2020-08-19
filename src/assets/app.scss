@@ -1,0 +1,18 @@
+@import url('http://at.alicdn.com/t/font_777085_hi9s8r75skv.css');
+@import url('http://at.alicdn.com/t/font_2000354_8i5jzfs4n0r.css');
+
+// 滚动条
+::-webkit-scrollbar-track {
+    background-color: var(--menu-bgcolor);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--scrollbar-color);
+}
