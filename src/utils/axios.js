@@ -55,7 +55,7 @@ function mixinLoading(interceptors) {
         if (!loading) {
             loading = Loading.service({
                 target: 'body',
-                // background: 'transparent',
+                background: 'transparent',
                 text: '加载中...'
             })
             // store.commit(SET_AXIOS_LOADING, true)

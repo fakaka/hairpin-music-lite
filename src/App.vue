@@ -36,7 +36,7 @@ export default {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    // text-align: center;
 
     height: 100%;
     width: 100%;
@@ -51,8 +51,6 @@ export default {
 
         .content {
             flex-grow: 1;
-            border-left: 1px solid;
-            border-right: 1px solid;
         }
     }
 }
