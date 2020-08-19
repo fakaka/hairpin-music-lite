@@ -1,10 +1,11 @@
 <template>
     <div class="music-footer">
-        footer
+        <player></player>
     </div>
 </template>
 
 <script>
+import Player from '../components/mini-player'
 export default {
     name: 'music-footer',
     props: {},
@@ -17,13 +18,13 @@ export default {
     methods: {},
     created() {},
     mounted() {},
-    components: {}
+    components: { Player }
 }
 </script>
 
 <style lang="scss" scoped>
 .music-footer {
-    height: 50px;
-    background: red;
+    height: 60px;
+    background: $main-color;
 }
 </style>

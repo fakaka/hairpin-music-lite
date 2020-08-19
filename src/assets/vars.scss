@@ -24,3 +24,10 @@ $theme-color: rgb(33, 113, 218);
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}

@@ -74,3 +74,7 @@ export function genArtistisText(artists) {
 function genSongPlayUrl(id) {
     return `https://music.163.com/song/media/outer/url?id=${id}.mp3`
 }
+
+export function isDef(v) {
+    return v !== undefined && v !== null
+}

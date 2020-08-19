@@ -47,7 +47,7 @@ export default {
     .main {
         flex-grow: 1;
         display: flex;
-        height: calc(100% - 100px);
+        height: calc(100% - 110px);
 
         .content {
             flex-grow: 1;
