@@ -1,7 +1,7 @@
 /**
  * 业务工具方法
  */
-// import { getAlbum } from '@/api'
+import { getAlbum } from '../api/song'
 
 export function isUndef(v) {
     return v === undefined || v === null
@@ -56,16 +56,16 @@ export function createSong(song) {
     }
 }
 
-// export async function getSongImg(id, albumId) {
-//     if (!isDef(albumId)) {
-//         throw new Error('need albumId')
-//     }
-//     const { songs } = await getAlbum(albumId)
-//     const {
-//         al: { picUrl }
-//     } = songs.find(({ id: songId }) => songId === id) || {}
-//     return picUrl
-// }
+export async function getSongImg(id, albumId) {
+    if (!isDef(albumId)) {
+        throw new Error('need albumId')
+    }
+    const { songs } = await getAlbum(albumId)
+    const {
+        al: { picUrl }
+    } = songs.find(({ id: songId }) => songId === id) || {}
+    return picUrl
+}
 
 export function genArtistisText(artists) {
     return (artists || []).map(({ name }) => name).join('/')

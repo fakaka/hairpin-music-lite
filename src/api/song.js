@@ -10,3 +10,6 @@ export const getSongDetail = (ids) => request.get(`/song/detail?ids=${ids}`)
 
 // 歌词
 export const getLyric = (id) => request.get(`/lyric?id=${id}`)
+
+
+export const getAlbum = (id) => request.get(`/album?id=${id}`)

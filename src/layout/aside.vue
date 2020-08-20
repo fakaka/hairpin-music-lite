@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import UserInfo from '../components/user'
+import UserInfo from '../components/user-info'
 import { getUserPlaylist } from '../api/user'
 
 export default {

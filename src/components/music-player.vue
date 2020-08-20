@@ -3,13 +3,12 @@
     <div class="mini-player" id="mini-player">
         <!-- 歌曲内容 -->
         <div class="song">
-            <!-- <template v-if="hasCurrentSong"> -->
-            <template>
+            <template v-if="hasCurrentSong">
                 <div @click="togglePlayerShow" class="img-wrap">
                     <img v-lazy="currentSong.img" class="blur" />
-                    <div class="player-control">
+                    <!-- <div class="player-control">
                         <Icon :size="24" :type="playControlIcon" color="white" />
-                    </div>
+                    </div> -->
                 </div>
                 <div class="content">
                     <div class="top">
@@ -46,14 +45,9 @@
                 <p>{{ playModeText }}</p>
                 <Icon :size="20" :type="modeIcon" @click="onChangePlayMode" class="mode-item" slot="reference" />
             </el-popover>
-            <!-- 播放列表 -->
-            <!-- <el-popover :value="isPlaylistPromptShow" placement="top" trigger="manual" width="160">
-                <p>已更新歌单</p> -->
-            <Icon :size="20" @click="togglePlaylistShow" class="mode-item" slot="reference" type="playlist" />
-            <!-- </el-popover> -->
             <!-- 音量 -->
             <div class="volume-item">
-                <Volume :volume="volume" @volumeChange="onVolumeChange" />
+                <!-- <Volume :volume="volume" @volumeChange="onVolumeChange" /> -->
             </div>
             <!-- github -->
             <Icon :size="20" @click="goGitHub" class="mode-item" type="github" />
@@ -73,7 +67,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-// import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
+import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
 import Storage from 'good-storage'
 // import Share from '@/components/share'
 import { isDef, pad } from '../utils/music'
@@ -85,30 +79,7 @@ export default {
         return {
             isPlayErrorPromptShow: false,
             songReady: false,
-            volume: Storage.get(VOLUME_KEY, DEFAULT_VOLUME),
-            currentSong: {
-                id: 544070223,
-                name: '探清水河',
-                img: 'https://p1.music.126.net/MeRZ3CHrAv5eac_N_LDB2g==/109951163973460928.jpg',
-                artists: [
-                    {
-                        id: 1138004,
-                        name: '晓月老板',
-                        tns: [],
-                        alias: []
-                    }
-                ],
-                duration: 304166,
-                albumName: '探清水河',
-                url: 'https://music.163.com/song/media/outer/url?id=544070223.mp3',
-                artistsText: '晓月老板',
-                durationSecond: 304.166,
-                mvId: 0,
-                alias: [],
-                noCopyright: false
-            },
-            currentTime: 0,
-            playMode: 'loop'
+            volume: Storage.get(VOLUME_KEY, DEFAULT_VOLUME)
         }
     },
     created() {},
@@ -131,17 +102,18 @@ export default {
             this.songReady = true
         },
         async play() {
-            if (this.songReady) {
-                try {
-                    await this.audio.play()
-                    if (this.isPlayErrorPromptShow) {
-                        this.isPlayErrorPromptShow = false
-                    }
-                } catch (error) {
-                    // 提示用户手动播放
-                    this.isPlayErrorPromptShow = true
-                    this.setPlayingState(false)
+            if (!this.songReady) {
+                return
+            }
+            try {
+                await this.audio.play()
+                if (this.isPlayErrorPromptShow) {
+                    this.isPlayErrorPromptShow = false
                 }
+            } catch (error) {
+                // 提示用户手动播放
+                this.isPlayErrorPromptShow = true
+                this.setPlayingState(false)
             }
         },
         pause() {
@@ -185,17 +157,14 @@ export default {
             const nextMode = playModeMap[nextModeKey]
             this.setPlayMode(nextMode.code)
         },
-        togglePlaylistShow() {
-            this.setPlaylistShow(!this.isPlaylistShow)
-        },
         togglePlayerShow() {
             this.setPlayerShow(!this.isPlayerShow)
         },
         goGitHub() {
             window.open('https://github.com/fakaka/hairpin-music-lite')
-        }
-        // ...mapMutations(['setCurrentTime', 'setPlayingState', 'setPlayMode', 'setPlaylistShow', 'setPlayerShow']),
-        // ...mapActions(['startSong'])
+        },
+        ...mapMutations(['setCurrentTime', 'setPlayingState', 'setPlayMode', 'setPlaylistShow', 'setPlayerShow']),
+        ...mapActions(['startSong'])
     },
     watch: {
         currentSong(newSong, oldSong) {
@@ -260,17 +229,16 @@ export default {
              *
              */
             return `${window.location.origin}/share/163?musicId=${this.currentSong.id}`
-        }
-        // ...mapState([
-        //     'currentSong',
-        //     'currentTime',
-        //     'playing',
-        //     'playMode',
-        //     'isPlaylistShow',
-        //     'isPlaylistPromptShow',
-        //     'isPlayerShow'
-        // ]),
-        // ...mapGetters(['prevSong', 'nextSong'])
+        },
+        ...mapState([
+            'currentSong',
+            'currentTime',
+            'playing',
+            'playMode'
+            //     'isPlaylistPromptShow',
+            //     'isPlayerShow'
+        ]),
+        ...mapGetters(['prevSong', 'nextSong'])
     }
     // components: { Share }
 }
@@ -308,21 +276,21 @@ export default {
                 transition-duration: 0.3s;
             }
 
-            .player-control {
-                @include abs-center;
-                transition-duration: 0.3s;
-                display: none;
-            }
+            // .player-control {
+            //     @include abs-center;
+            //     transition-duration: 0.3s;
+            //     display: none;
+            // }
 
-            &:hover {
-                img {
-                    filter: blur(2px);
-                }
+            // &:hover {
+            //     img {
+            //         filter: blur(2px);
+            //     }
 
-                .player-control {
-                    display: block;
-                }
-            }
+            //     .player-control {
+            //         display: block;
+            //     }
+            // }
         }
 
         .content {

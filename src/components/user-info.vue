@@ -12,7 +12,7 @@
         </div>
 
         <!-- 登录框 -->
-        <el-dialog :modal="false" :visible.sync="visible">
+        <el-dialog :modal="false" :visible.sync="visible" width="360px">
             <p slot="title">登录</p>
             <div class="login-body">
                 <el-input class="input" placeholder="请输入您的网易云uid" v-model="uid" />
@@ -40,26 +40,20 @@ import storage from 'good-storage'
 import { UID_KEY } from '../utils/config'
 import { getUserDetail } from '../api/user'
 // import { confirm } from '@/base/confirm'
-// import {
-//     mapActions as mapUserActions,
-//     mapState as mapUserState,
-//     mapGetters as mapUserGetters
-// } from '@/store/helper/user'
+import { mapActions, mapState, mapGetters } from '@/store/helper/user'
 
 export default {
     created() {
         const uid = storage.get(UID_KEY)
         // if (isDef(uid)) {
-        this.onLogin(uid)
+            this.onLogin(uid)
         // }
     },
     data() {
         return {
             visible: false,
             loading: false,
-            uid: '54034393',
-            user: {},
-            isLogin: false
+            uid: '54034393'
         }
     },
     methods: {
@@ -78,26 +72,18 @@ export default {
                 this.onCloseModal()
             }
         },
-        async login(uid) {
-            const user = await getUserDetail(uid)
-            const { profile } = user
-            this.user = profile
-            this.isLogin = true
-            storage.set(UID_KEY, profile.userId)
-            return true
-        },
         detail() {
             this.$router.push('/user')
             // confirm('确定要注销吗？', () => {
             //     this.logout()
             // })
-        }
-        //     ...mapUserActions(['login', 'logout'])
+        },
+        ...mapActions(['login', 'logout'])
+    },
+    computed: {
+        ...mapState(['user']),
+        ...mapGetters(['isLogin'])
     }
-    // computed: {
-    //     ...mapUserState(['user']),
-    //     ...mapUserGetters(['isLogin'])
-    // },
     // components: {}
 }
 </script>

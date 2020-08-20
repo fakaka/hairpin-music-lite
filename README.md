@@ -5,7 +5,7 @@
 
 ## Project setup
 ```
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
@@ -16,11 +16,6 @@ yarn run dev
 ### Compiles and minifies for production
 ```
 yarn run build
-```
-
-### Run your tests
-```
-yarn run test
 ```
 
 ### Lints and fixes files
@@ -43,6 +38,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     - [x] 封面和歌词
 - [ ] 底部
     - [x] 控制
+    - [ ] 音量
+    - [ ] 当前歌曲
 - [ ] 持续集成
     - [ ] github page
     - [ ] 服务器

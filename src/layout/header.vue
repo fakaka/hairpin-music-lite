@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ThemeChooser from '../components/theme'
+import ThemeChooser from '../components/theme-chooser'
 export default {
     name: 'music-header',
     data() {

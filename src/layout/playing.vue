@@ -6,7 +6,6 @@
         <div class="desc">
             <div class="name-wrap">
                 <p class="name">{{ currentSong.name }}</p>
-                <span @click="onGoMv" class="mv-tag" v-if="currentSong.mvId">MV</span>
             </div>
             <div class="artist-wrap">
                 <span class="label">歌手：</span>

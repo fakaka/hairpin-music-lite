@@ -1,11 +1,11 @@
 <template>
     <div class="music-footer">
-        <player></player>
+        <music-player></music-player>
     </div>
 </template>
 
 <script>
-import Player from '../components/mini-player'
+import MusicPlayer from '../components/music-player'
 export default {
     name: 'music-footer',
     props: {},
@@ -18,7 +18,7 @@ export default {
     methods: {},
     created() {},
     mounted() {},
-    components: { Player }
+    components: { MusicPlayer }
 }
 </script>
 

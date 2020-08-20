@@ -1,7 +1,7 @@
 <script>
 import ElTable from 'element-ui/lib/table'
 import HighlightText from './HighlightText'
-// import { mapMutations, mapActions, mapState } from '@/store/helper/music'
+import { mapMutations, mapActions, mapState } from '@/store/helper/music'
 import { pad, genImgUrl, formatTime } from '../utils/music'
 
 export default {
@@ -74,13 +74,8 @@ export default {
                     scopedSlots: {
                         default: (scope) => {
                             const {
-                                row: { name, mvId, noCopyright }
+                                row: { name, noCopyright }
                             } = scope
-
-                            const onGoMv = async (e) => {
-                                e.stopPropagation()
-                                goMvWithCheck(mvId)
-                            }
 
                             return (
                                 <div>
@@ -90,10 +85,6 @@ export default {
                                             text={name}
                                             highlightText={this.highlightText}
                                         />
-
-                                        {mvId ? (
-                                            <Icon class="mv-icon" onClick={onGoMv} type="mv" color="theme" size={18} />
-                                        ) : null}
                                     </div>
 
                                     {this.renderNameDesc ? this.renderNameDesc(scope) : null}
@@ -149,9 +140,9 @@ export default {
                 retCls.push('song-active')
             }
             return retCls.join(' ')
-        }
-        // ...mapMutations(['setPlaylist']),
-        // ...mapActions(['startSong'])
+        },
+        ...mapMutations(['setPlaylist']),
+        ...mapActions(['startSong'])
     },
     computed: {
         showColumns() {
@@ -263,13 +254,8 @@ function genPropsAndAttrs(rawAttrs, componentProps) {
             @include text-ellipsis;
 
             &.nocopyright {
-                color: var(--font-color-grey-shallow);
+                color: #bebebe;
             }
-        }
-
-        .mv-icon {
-            width: 24px;
-            margin-left: 4px;
         }
     }
 }
