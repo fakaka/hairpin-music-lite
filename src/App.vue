@@ -51,6 +51,7 @@ export default {
 
         .content {
             flex-grow: 1;
+            margin-top: 12px;
         }
     }
 }

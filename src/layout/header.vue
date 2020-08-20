@@ -5,7 +5,7 @@
         </div>
         <div class="center">
             <span class="title">
-                YOYO
+                <i>YOYO</i>
             </span>
             <div class="routes"></div>
         </div>
@@ -45,6 +45,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding-right: 18px;
+    box-shadow: 0px 2px 2px 2px #ececec;
 
     .left {
         height: 100%;
@@ -58,7 +59,7 @@ export default {
     .center {
         flex-grow: 1;
         .title {
-            margin-left: 120px;
+            // margin-left: 120px;
         }
     }
 

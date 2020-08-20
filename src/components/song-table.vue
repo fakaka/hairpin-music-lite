@@ -60,7 +60,9 @@ export default {
                             return (
                                 <div class="img-wrap">
                                     <img v-lazy={genImgUrl(scope.row.img, 120)} />
-                                    <PlayIcon class="play-icon" />
+                                    <div class="play-icon-wrap">
+                                        <Icon class="play-icon" type="play" />
+                                    </div>
                                 </div>
                             )
                         }
@@ -122,7 +124,7 @@ export default {
             this.setPlaylist(this.songs)
         },
         isActiveSong(song) {
-            // return song.id === this.currentSong.id
+            return song.id === this.currentSong.id
         },
         tableCellClassName(args) {
             const { row, columnIndex } = args
@@ -155,8 +157,8 @@ export default {
             return this.columns.filter((column) => {
                 return !hideColumns.find((hideColumn) => hideColumn === column.prop)
             })
-        }
-        // ...mapState(['currentSong'])
+        },
+        ...mapState(['currentSong'])
     },
     render() {
         const elTableProps = ElTable.props
@@ -238,8 +240,17 @@ function genPropsAndAttrs(rawAttrs, componentProps) {
             border-radius: 4px;
         }
 
-        .play-icon {
+        &:hover .play-icon-wrap {
             @include abs-center;
+            @include flex-center();
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+
+            .play-icon {
+                color: $theme-color;
+            }
         }
     }
 

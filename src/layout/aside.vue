@@ -7,8 +7,8 @@
                     <Icon :size="16" type="music" class="iconfont" />
                     <span class="menu-title">播放列表</span>
                 </router-link>
-                <router-link to="/about" active-class="menu-item-active" class="menu-item" tag="li">
-                    <Icon :size="16" type="music" class="iconfont" />
+                <router-link to="/playlist/3778678" active-class="menu-item-active" class="menu-item" tag="li">
+                    <Icon :size="16" type="rank" class="iconfont" />
                     <span class="menu-title">热歌榜</span>
                 </router-link>
             </ul>

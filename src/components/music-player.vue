@@ -41,10 +41,9 @@
             <!-- <Share :shareUrl="shareUrl" class="mode-item" v-show="hasCurrentSong" /> -->
 
             <!-- 模式 -->
-            <el-popover placement="top" trigger="hover" width="160">
-                <p>{{ playModeText }}</p>
-                <Icon :size="20" :type="modeIcon" @click="onChangePlayMode" class="mode-item" slot="reference" />
-            </el-popover>
+            <el-tooltip placement="top" :content="playModeText" effect="light">
+                <Icon :size="20" :type="modeIcon" @click="onChangePlayMode" class="mode-item" />
+            </el-tooltip>
             <!-- 音量 -->
             <div class="volume-item">
                 <!-- <Volume :volume="volume" @volumeChange="onVolumeChange" /> -->
@@ -392,5 +391,10 @@ export default {
 .icon {
     color: var(--font-color);
     cursor: pointer;
+}
+
+.el-popover {
+    min-width: 90px;
+    padding: 10px;
 }
 </style>

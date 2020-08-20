@@ -80,6 +80,9 @@ export default {
             })
             this.songs = songs
         },
+        playAll() {
+            
+        },
         onInputFocus() {
             this.inputFocus = true
         },

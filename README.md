@@ -26,6 +26,15 @@ yarn run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## 参考资料
+
+### 音乐界面 UI
+[sl1673495/vue-netease-music](https://github.com/sl1673495/vue-netease-music)
+
+### 网易云音乐 API 
+[Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
+
+
 ## RoadMap
 - [ ] 头部
     - [ ] logo
