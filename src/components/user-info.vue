@@ -73,9 +73,9 @@ export default {
             }
         },
         detail() {
-            this.$router.push('/user')
+            // this.$router.push('/user')
             // confirm('确定要注销吗？', () => {
-            //     this.logout()
+            this.logout()
             // })
         },
         ...mapActions(['login', 'logout'])

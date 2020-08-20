@@ -5,7 +5,7 @@
         <div class="tabs-wrap">
             <div>
                 <el-button @click="playAll" class="button">
-                    <Icon class="icon middle" color="white" type="play-round" />
+                    <!-- <Icon class="icon middle" color="white" type="play-round" /> -->
                     <span class="middle">播放全部 ({{ songs.length }})</span>
                 </el-button>
             </div>
@@ -81,7 +81,7 @@ export default {
             this.songs = songs
         },
         playAll() {
-            
+
         },
         onInputFocus() {
             this.inputFocus = true

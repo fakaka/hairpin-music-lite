@@ -54,7 +54,7 @@ export default {
         if (this.backdrop) {
             const backDropSizeRatio = 1.56
             // const backDropSize = toRem(backDropSizeRatio * this.size)
-            const backDropSize = backDropSizeRatio * this.size
+            const backDropSize = Math.round(backDropSizeRatio * this.size) + 'px'
             return (
                 <span style={{ width: backDropSize, height: backDropSize }} class="backdrop">
                     {Icon}
@@ -73,7 +73,8 @@ export default {
     border-radius: 50%;
 
     &:hover {
-        background: var(--round-hover-bgcolor);
+        // background: var(--round-hover-bgcolor);
+        background: #EBEBEB;
     }
 }
 

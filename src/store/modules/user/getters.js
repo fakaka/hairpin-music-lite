@@ -3,7 +3,7 @@ import { isDef } from '../../../utils/music'
 export const isLogin = (state) => isDef(state.user.userId)
 
 // 根据用户请求的数据整合出菜单
-export const userMenus = (state) => {
+export const menuPlaylist = (state) => {
     const { user, userPlaylist } = state
     const retMenus = []
     const userCreateList = []
@@ -20,6 +20,7 @@ export const userMenus = (state) => {
 
     const genPlaylistChildren = (playlist) =>
         playlist.map(({ id, name }) => ({
+            id,
             path: `/playlist/${id}`,
             meta: {
                 title: name,

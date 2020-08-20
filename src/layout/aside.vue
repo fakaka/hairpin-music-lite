@@ -37,62 +37,19 @@
 
 <script>
 import UserInfo from '../components/user-info'
-import { getUserPlaylist } from '../api/user'
+import { mapGetters } from '@/store/helper/user'
 
 export default {
     name: 'music-aside',
     props: {},
     data() {
-        return {
-            uid: 54034393,
-            menuPlaylist: []
-        }
+        return {}
     },
-    computed: {},
+    computed: {
+        ...mapGetters(['isLogin', 'menuPlaylist'])
+    },
     methods: {},
-    async created() {
-        const { playlist: userPlaylist } = await getUserPlaylist(this.uid)
-        const retMenus = []
-        const userCreateList = []
-        const userCollectList = []
-
-        userPlaylist.forEach((playlist) => {
-            const { userId } = playlist
-            if (this.uid === userId) {
-                userCreateList.push(playlist)
-            } else {
-                userCollectList.push(playlist)
-            }
-        })
-
-        const genPlaylistChildren = (playlist) =>
-            playlist.map(({ id, name }) => ({
-                id: id,
-                path: `/playlist/${id}`,
-                meta: {
-                    title: name,
-                    icon: 'playlist-menu'
-                }
-            }))
-
-        if (userCreateList.length) {
-            retMenus.push({
-                type: 'playlist',
-                title: '创建的歌单',
-                children: genPlaylistChildren(userCreateList)
-            })
-        }
-
-        if (userCollectList.length) {
-            retMenus.push({
-                type: 'playlist',
-                title: '收藏的歌单',
-                children: genPlaylistChildren(userCollectList)
-            })
-        }
-
-        this.menuPlaylist = retMenus
-    },
+    async created() {},
     mounted() {},
     components: {
         UserInfo
@@ -135,7 +92,7 @@ export default {
 
                     &-active {
                         color: $main-color;
-                        background: #e7e7e7;
+                        background: #e6e7ea;
                         box-shadow: inset 4px 0 rgba(33, 113, 218, 0.75);
 
                         i {
