@@ -40,7 +40,7 @@ export default {
 
     height: 100%;
     width: 100%;
-    color: $main-color;
+    // color: $main-color;
     display: flex;
     flex-direction: column;
 

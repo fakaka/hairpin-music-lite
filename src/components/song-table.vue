@@ -69,7 +69,7 @@ export default {
                 {
                     prop: 'name',
                     label: '音乐标题',
-                    minWidth: '200',
+                    minWidth: '160',
                     className: 'title-td',
                     scopedSlots: {
                         default: (scope) => {
@@ -213,6 +213,9 @@ function genPropsAndAttrs(rawAttrs, componentProps) {
 </script>
 
 <style lang="scss">
+.el-table .cell {
+    white-space: nowrap;
+}
 .song-table {
     .title-th {
         color: var(--font-color-grey2);

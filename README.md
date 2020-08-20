@@ -35,14 +35,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 头部
     - [ ] logo
     - [ ] 皮肤
-    - [ ] 布局
+    - [x] 布局
     - [ ] 设置
 - [ ] 左侧
-    - [ ] 用户
-    - [ ] 歌单
-    - [ ] 封面和歌词
+    - [x] 用户
+    - [x] 歌单
+    - [x] 封面和歌词
 - [ ] 底部
-    - [ ] 控制
+    - [x] 控制
 - [ ] 持续集成
     - [ ] github page
     - [ ] 服务器

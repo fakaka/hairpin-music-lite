@@ -4,17 +4,35 @@
             <img alt="Vue logo" src="../assets/logo.png" />
         </div>
         <div class="center">
-            header
+            <span class="title">
+                YOYO
+            </span>
+            <div class="routes"></div>
         </div>
         <div class="right">
-            <el-button type="text" icon="el-icon-close"> </el-button>
+            <theme-chooser />
+            <div class="setting-wrap" @click="toSetting">
+                <Icon type="setting" :backdrop="true" />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import ThemeChooser from '../components/theme'
 export default {
-    methods: {}
+    name: 'music-header',
+    data() {
+        return {}
+    },
+    methods: {
+        toSetting() {
+            this.$router.push('/setting')
+        }
+    },
+    components: {
+        ThemeChooser
+    }
 }
 </script>
 
@@ -23,8 +41,15 @@ export default {
     display: flex;
     height: 50px;
     background: $main-color;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 18px;
 
     .left {
+        height: 100%;
+        padding: 0 12px;
+
         img {
             height: 100%;
         }
@@ -32,6 +57,19 @@ export default {
 
     .center {
         flex-grow: 1;
+        .title {
+            margin-left: 120px;
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+
+        .setting-wrap {
+            margin: 0 16px;
+            @include flex-center();
+        }
     }
 }
 </style>

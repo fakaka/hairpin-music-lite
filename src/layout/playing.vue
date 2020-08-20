@@ -287,5 +287,40 @@ export default {
             border-radius: 2px;
         }
     }
+    .desc {
+        font-size: 14px;
+    }
+
+    .lrc-container {
+        height: calc(100% - 220px);
+        .lyric-wrap {
+            height: 100%;
+            margin-top: 16px;
+            mask-image: linear-gradient(
+                180deg,
+                hsla(0, 0%, 100%, 0) 0,
+                hsla(0, 0%, 100%, 0.6) 5%,
+                #fff 25%,
+                #fff 75%,
+                hsla(0, 0%, 100%, 0.6) 95%,
+                hsla(0, 0%, 100%, 0)
+            );
+
+            .lyric-item {
+                margin-bottom: 16px;
+                font-size: 12px;
+
+                &.active {
+                    font-size: 12px;
+                    color: var(--font-color-white);
+                    // font-weight: $font-weight-bold;
+                }
+
+                .lyric-text {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
 }
 </style>

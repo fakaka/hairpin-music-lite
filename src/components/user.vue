@@ -106,7 +106,8 @@ export default {
 .user {
     padding: 16px;
     padding-bottom: 0;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
 
     .login-trigger {
         display: flex;
