@@ -40,7 +40,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     - [ ] logo
     - [x] 皮肤
     - [x] 布局
-    - [ ] 路由
+    - [x] 路由
 - [ ] 左侧
     - [x] 用户
     - [x] 歌单

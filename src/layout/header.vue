@@ -1,13 +1,20 @@
 <template>
     <div class="header">
         <div class="left">
-            <img alt="Vue logo" src="../assets/logo-2.png" />
-        </div>
-        <div class="center">
+            <img alt="YOYO logo" src="../assets/logo-2.png" @click="goHome" />
             <span class="title" title="鹿鸣yoyo">
                 <i>YOYO</i>
             </span>
-            <div class="routes"></div>
+        </div>
+        <div class="center">
+            <div class="routes">
+                <Icon class="icon" :backdrop="true" type="back" @click="back" />
+                <Icon :backdrop="true" type="forward" @click="forward" />
+            </div>
+            <div class="welcome">
+                聆听好时光
+                <span>余生有你，满心欢喜 - 七夕特别版</span>
+            </div>
         </div>
         <div class="right">
             <theme-chooser />
@@ -26,6 +33,15 @@ export default {
         return {}
     },
     methods: {
+        goHome() {
+            this.$router.push('/home')
+        },
+        back() {
+            this.$router.back()
+        },
+        forward() {
+            this.$router.forward()
+        },
         toSetting() {
             this.$router.push('/setting')
         }
@@ -46,18 +62,32 @@ export default {
     padding-right: 18px;
 
     .left {
-        height: 100%;
+        display: flex;
+        align-items: center;
         padding: 0 12px;
+        width: 250px;
 
         img {
-            height: 100%;
+            height: 50px;
+        }
+        .title {
+            margin-left: 12px;
         }
     }
 
     .center {
         flex-grow: 1;
-        .title {
-            // margin-left: 120px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .routes {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                margin-right: 16px;
+            }
         }
     }
 
