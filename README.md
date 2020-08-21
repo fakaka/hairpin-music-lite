@@ -1,7 +1,7 @@
 # hairpin-music-lite
 > 一个网页版的音乐播放器页面  
-> ~~众所周知没有做过播放器的前端是不完整~~
-
+> ~~众所周知没有做过播放器的前端是不完整~~  
+> 预览地址 <https://hairpin-music-lite.vercel.app>
 
 ## Project setup
 ```
@@ -47,9 +47,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     - [x] 封面和歌词
 - [ ] 底部
     - [x] 控制
-    - [ ] 音量
+    - [x] 音量
     - [ ] 当前歌曲
 - [ ] 设置
 - [ ] 持续集成
-    - [ ] github page
-    - [ ] 服务器
+    - [x] github page
+    - [ ] ~~服务器~~
+
+
+## ChangeLog
+

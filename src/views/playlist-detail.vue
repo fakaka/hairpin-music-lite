@@ -1,7 +1,6 @@
 // 歌单详情页面
 <template>
     <div class="playlist-detail" v-if="playlist.id">
-        <!-- <DetailHeader ref="header" :playlist="playlist" :songs="songs" /> -->
         <div class="tabs-wrap">
             <div class="button-group">
                 <div @click="playAll" class="n-button">
@@ -37,7 +36,6 @@
 </template>
 
 <script>
-// import DetailHeader from './header'
 import { mapActions, mapMutations } from '@/store/helper/music'
 import SongTable from '../components/song-table'
 import { createSong, scrollInto } from '../utils/music'
@@ -98,7 +96,7 @@ export default {
             this.inputFocus = false
         },
         getInputCls() {
-            return !this.inputFocus ? 'inactive' : ''
+            return this.inputFocus ? '' : 'inactive'
         },
         scrollToHeader() {
             const { header } = this.$refs
@@ -146,8 +144,9 @@ export default {
 <style lang="scss" scoped>
 .playlist-detail {
     width: 100%;
-    overflow: auto;
     height: 100%;
+    overflow: auto;
+    padding-top: 12px;
 
     .tabs-wrap {
         display: flex;
@@ -166,7 +165,7 @@ export default {
             cursor: pointer;
             vertical-align: bottom;
             background: linear-gradient(to right, #4074c7, #2c5dbd, #2f5daf);
-            color: #fbdfdd;
+            color: #fff;
             border: none;
 
             .icon {

@@ -12,7 +12,7 @@
                 <Icon :backdrop="true" type="forward" @click="forward" />
             </div>
             <div class="welcome">
-                聆听好时光
+                <!-- 聆听好时光 -->
                 <span>余生有你，满心欢喜 - 七夕特别版</span>
             </div>
         </div>

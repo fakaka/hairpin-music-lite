@@ -1,6 +1,6 @@
 // 底部播放栏组件
 <template>
-    <div class="mini-player" id="mini-player">
+    <div class="music-player" id="music-player">
         <!-- 歌曲内容 -->
         <div class="song">
             <template v-if="hasCurrentSong">
@@ -47,6 +47,8 @@
             <!-- 音量 -->
             <div class="volume-item">
                 <!-- <Volume :volume="volume" @volumeChange="onVolumeChange" /> -->
+                <Icon :size="20" :type="getIconType()" @click="toggleSilence" class="icon" />
+                <el-slider v-model="volume" @change="onVolumeChange"></el-slider>
             </div>
             <!-- github -->
             <Icon :size="20" @click="goGitHub" class="mode-item" type="github" />
@@ -72,18 +74,21 @@ import Storage from 'good-storage'
 import { isDef, pad } from '../utils/music'
 import { playModeMap, VOLUME_KEY } from '../utils/config'
 
-const DEFAULT_VOLUME = 0.75
+const DEFAULT_VOLUME = 75
 export default {
+    name: 'music-player',
     data() {
         return {
             isPlayErrorPromptShow: false,
             songReady: false,
-            volume: Storage.get(VOLUME_KEY, DEFAULT_VOLUME)
+            volume: Storage.get(VOLUME_KEY, DEFAULT_VOLUME),
+            lastVolume: 0,
+            isSilence: false
         }
     },
     created() {},
     mounted() {
-        this.audio.volume = this.volume
+        this.audio.volume = this.volume / 100
     },
     methods: {
         formatTime(interval) {
@@ -144,9 +149,21 @@ export default {
             this.audio.currentTime = this.currentSong.durationSecond * percent
             this.setPlayingState(true)
         },
-        onVolumeChange(percent) {
-            this.audio.volume = percent
-            Storage.set(VOLUME_KEY, percent)
+        getIconType() {
+            return this.isSilence ? 'silence' : 'horn'
+        },
+        toggleSilence() {
+            if (this.isSilence) {
+                this.volume = this.lastVolume
+            } else {
+                this.lastVolume = this.volume
+                this.volume = 0
+            }
+            this.isSilence = !this.isSilence
+        },
+        onVolumeChange(volume) {
+            this.audio.volume = volume / 100
+            Storage.set(VOLUME_KEY, volume)
         },
         onChangePlayMode() {
             const modeKeys = Object.keys(playModeMap)
@@ -244,7 +261,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mini-player {
+.music-player {
     position: relative;
     position: fixed;
     bottom: 0;
@@ -375,7 +392,37 @@ export default {
         }
 
         .volume-item {
+            width: 160px;
             margin-right: 22px;
+            display: flex;
+            align-items: center;
+
+            .el-slider {
+                margin-left: 12px;
+                width: 130px;
+
+                ::v-deep .el-slider__runway {
+                    height: 4px;
+                    background-color: var(--progress-bgcolor);
+
+                    .el-slider__bar {
+                        height: 4px;
+                    }
+
+                    .el-slider__button-wrapper {
+                        height: 32px;
+                        width: 32px;
+                        top: -14px;
+
+                        .el-slider__button {
+                            width: 12px;
+                            height: 12px;
+                            border-color: #409eff;
+                            background-color: #409eff;
+                        }
+                    }
+                }
+            }
         }
     }
 
