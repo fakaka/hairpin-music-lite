@@ -62,19 +62,19 @@ export default {
     display: flex;
     flex-direction: column;
     width: 250px;
+    background-color: var(--menu-bgcolor);
 
     .menu-warp {
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-        color: #4a4a4a;
 
         .menu-block {
             margin: 8px 0;
 
             .menu-block-title {
                 font-size: 12px;
-                color: #808080;
+                color: var(--font-color-grey2);
                 padding-left: 16px;
                 margin-bottom: 8px;
             }
@@ -86,13 +86,13 @@ export default {
                     cursor: pointer;
 
                     &:hover {
-                        background: #e7e7e7;
+                        background: var(--menu-item-hover-bg);
                         color: $main-color;
                     }
 
                     &-active {
                         color: $main-color;
-                        background: #e6e7ea;
+                        background: var(--menu-item-active-bg);
                         box-shadow: inset 4px 0 rgba(33, 113, 218, 0.75);
 
                         i {
@@ -125,12 +125,13 @@ export default {
                 font-size: 13px;
 
                 &:hover {
-                    background: #e7e7e7;
+                    background: var(--menu-item-hover-bg);
                     color: $main-color;
                 }
 
                 &-active {
                     color: $main-color;
+                    background: var(--menu-item-active-bg);
                     background: #e7e7e7;
 
                     i {

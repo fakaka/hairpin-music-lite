@@ -19,8 +19,8 @@
 
 <script type="text/ecmascript-6">
 import storage from 'good-storage'
-// import variables from '@/style/themes/variables'
-// import variablesWhite from '@/style/themes/variables-white'
+import variablesDark from '@/assets/themes/dark'
+import variablesWhite from '@/assets/themes/white'
 // import variablesRed from '@/style/themes/variables-red'
 
 const THEME_KEY = '__theme__'
@@ -35,14 +35,14 @@ export default {
         this.themeMap = {
             [themes.dark]: {
                 title: '深色',
-                // file: variables,
+                file: variablesDark,
                 style: {
                     backgroundColor: '#202020'
                 }
             },
             [themes.white]: {
                 title: '浅色',
-                // file: variablesWhite,
+                file: variablesWhite,
                 style: {
                     backgroundColor: '#F6F6F6',
                     border: '1px solid #EBEAEA'
@@ -91,10 +91,12 @@ export default {
         },
         changeTheme(themeKey) {
             const theme = this.themeMap[themeKey].file
-            // Object.keys(theme).forEach((key) => {
-            //     const value = theme[key]
-            //     document.documentElement.style.setProperty(key, value)
-            // })
+            if (theme) {
+                Object.keys(theme).forEach((key) => {
+                    const value = theme[key]
+                    document.documentElement.style.setProperty(key, value)
+                })
+            }
         },
         handlerListener(mode) {
             let listeners = {

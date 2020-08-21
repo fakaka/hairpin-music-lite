@@ -35,6 +35,7 @@
 
 <script>
 // import DetailHeader from './header'
+import { mapActions, mapMutations } from '@/store/helper/music'
 import SongTable from '../components/song-table'
 import { createSong, scrollInto } from '../utils/music'
 import { getListDetail, getSongDetail } from '../api/song'
@@ -81,7 +82,8 @@ export default {
             this.songs = songs
         },
         playAll() {
-
+            this.startSong(this.songs[0])
+            this.setPlaylist(this.songs)
         },
         onInputFocus() {
             this.inputFocus = true
@@ -104,7 +106,9 @@ export default {
                 // return <span title={alias[0]} class="name-desc">{alias[0]}</span>
                 return <span class="name-desc">{alias[0]}</span>
             }
-        }
+        },
+        ...mapMutations(['setPlaylist', 'addPlaylist']),
+        ...mapActions(['startSong'])
     },
     computed: {
         id() {

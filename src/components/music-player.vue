@@ -255,8 +255,7 @@ export default {
     height: 60px;
     padding: 8px 16px;
     padding-right: 24px;
-    // background: var(--body-bgcolor);
-    background: #ebebeb;
+    background: var(--body-bgcolor);
 
     .song {
         display: flex;

@@ -73,8 +73,7 @@ export default {
     border-radius: 50%;
 
     &:hover {
-        // background: var(--round-hover-bgcolor);
-        background: #EBEBEB;
+        background: var(--round-hover-bgcolor);
     }
 }
 

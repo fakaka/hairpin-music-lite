@@ -10,7 +10,7 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: Home
+        redirect: '/playlist/3778678'
     },
     {
         path: '/playlist/:id',

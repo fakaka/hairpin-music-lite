@@ -1,10 +1,10 @@
 <template>
     <div class="header">
         <div class="left">
-            <img alt="Vue logo" src="../assets/logo.png" />
+            <img alt="Vue logo" src="../assets/logo-2.png" />
         </div>
         <div class="center">
-            <span class="title">
+            <span class="title" title="鹿鸣yoyo">
                 <i>YOYO</i>
             </span>
             <div class="routes"></div>
@@ -40,8 +40,7 @@ export default {
 .header {
     display: flex;
     height: 50px;
-    background: $main-color;
-    color: #fff;
+    background-color: var(--header-bgcolor);
     justify-content: space-between;
     align-items: center;
     padding-right: 18px;
