@@ -10,8 +10,9 @@ import VueLazyload from 'vue-lazyload'
 import ElementUI from 'element-ui'
 
 import 'element-ui/lib/theme-chalk/index.css'
-import './assets/reset.css'
-import './assets/app.scss'
+import './assets/styles/element-overwrite.scss'
+import './assets/styles/reset.css'
+import './assets/styles/app.scss'
 
 Vue.config.productionTip = false
 

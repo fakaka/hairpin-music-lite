@@ -44,7 +44,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding-right: 18px;
-    box-shadow: 0px 2px 2px 2px #ececec;
 
     .left {
         height: 100%;

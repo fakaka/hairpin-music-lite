@@ -38,9 +38,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## RoadMap
 - [ ] 头部
     - [ ] logo
-    - [ ] 皮肤
+    - [x] 皮肤
     - [x] 布局
-    - [ ] 设置
+    - [ ] 路由
 - [ ] 左侧
     - [x] 用户
     - [x] 歌单
@@ -49,6 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     - [x] 控制
     - [ ] 音量
     - [ ] 当前歌曲
+- [ ] 设置
 - [ ] 持续集成
     - [ ] github page
     - [ ] 服务器

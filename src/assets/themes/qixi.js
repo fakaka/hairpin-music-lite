@@ -1,4 +1,4 @@
-import variablesWhite from './variables-white'
+import variablesWhite from './white'
 
 export default {
     ...variablesWhite,

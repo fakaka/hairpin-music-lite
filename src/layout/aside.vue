@@ -114,7 +114,6 @@ export default {
     }
 
     .menu-warp-fixed {
-        border-bottom: 1px solid #ececec;
         padding: 8px 0;
 
         .menu-list {
@@ -132,7 +131,6 @@ export default {
                 &-active {
                     color: $main-color;
                     background: var(--menu-item-active-bg);
-                    background: #e7e7e7;
 
                     i {
                         color: $main-color;

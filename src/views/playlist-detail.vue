@@ -3,11 +3,14 @@
     <div class="playlist-detail" v-if="playlist.id">
         <!-- <DetailHeader ref="header" :playlist="playlist" :songs="songs" /> -->
         <div class="tabs-wrap">
-            <div>
-                <el-button @click="playAll" class="button">
-                    <!-- <Icon class="icon middle" color="white" type="play-round" /> -->
+            <div class="button-group">
+                <div @click="playAll" class="n-button">
+                    <Icon class="icon middle" color="white" type="play-round" />
                     <span class="middle">播放全部 ({{ songs.length }})</span>
-                </el-button>
+                </div>
+                <div @click="addAll" class="n-button plus-button">
+                    <i class="el-icon-plus" />
+                </div>
             </div>
 
             <el-input
@@ -85,6 +88,9 @@ export default {
             this.startSong(this.songs[0])
             this.setPlaylist(this.songs)
         },
+        addAll() {
+            this.addPlaylist(this.songs)
+        },
         onInputFocus() {
             this.inputFocus = true
         },
@@ -148,7 +154,54 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin: 0 24px;
+        padding-bottom: 12px;
         border-bottom: 1px solid var(--border);
+
+        .n-button {
+            font-size: 13px;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 2px;
+            text-align: center;
+            cursor: pointer;
+            vertical-align: bottom;
+            background: linear-gradient(to right, #4074c7, #2c5dbd, #2f5daf);
+            color: #fbdfdd;
+            border: none;
+
+            .icon {
+                margin-right: 4px;
+            }
+
+            &:hover {
+                // background: var(--button-hover-bgcolor);
+                background: #4074c7;
+            }
+
+            .middle {
+                vertical-align: middle;
+            }
+        }
+
+        .plus-button {
+            line-height: 18px;
+            background: $theme-color;
+        }
+
+        .button-group {
+            display: inline-block;
+
+            .n-button {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .n-button + .n-button {
+                border-radius: 0;
+                border-top-right-radius: 2px;
+                border-bottom-right-radius: 2px;
+            }
+        }
 
         .input {
             width: 125px;
@@ -173,11 +226,11 @@ export default {
     }
 
     .empty {
-        // @include flex-center;
+        @include flex-center;
         height: 200px;
 
         .keyword {
-            color: blue;
+            color: $theme-color;
         }
     }
 

@@ -30,7 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -42,6 +41,7 @@ export default {
     // color: $main-color;
     display: flex;
     flex-direction: column;
+    background-color: var(--body-bgcolor);
 
     .main {
         flex-grow: 1;
@@ -50,7 +50,7 @@ export default {
 
         .content {
             flex-grow: 1;
-            margin-top: 12px;
+            padding-top: 12px;
         }
     }
 }
