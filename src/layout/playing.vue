@@ -148,7 +148,9 @@ export default {
             }
         }
     },
-    created() {},
+    created() {
+        this.updateLyric()
+    },
     mounted() {},
     components: { LyricScroller }
 }

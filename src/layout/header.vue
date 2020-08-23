@@ -13,7 +13,7 @@
             </div>
             <div class="welcome">
                 <!-- 聆听好时光 -->
-                <span>余生有你，满心欢喜 - 七夕特别版</span>
+                <span v-if="spDay">余生有你，满心欢喜 - 七夕特别版</span>
             </div>
         </div>
         <div class="right">
@@ -30,7 +30,13 @@ import ThemeChooser from '../components/theme-chooser'
 export default {
     name: 'music-header',
     data() {
-        return {}
+        return {
+            spDay: false
+        }
+    },
+    created() {
+        // if(7/7)
+        this.spDay = true
     },
     methods: {
         goHome() {
@@ -88,6 +94,9 @@ export default {
             .icon {
                 margin-right: 16px;
             }
+        }
+        .welcome {
+            padding: 0 16px;
         }
     }
 

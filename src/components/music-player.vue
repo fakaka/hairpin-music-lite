@@ -48,7 +48,7 @@
             <div class="volume-item">
                 <!-- <Volume :volume="volume" @volumeChange="onVolumeChange" /> -->
                 <Icon :size="20" :type="getIconType()" @click="toggleSilence" class="icon" />
-                <el-slider v-model="volume" @change="onVolumeChange"></el-slider>
+                <el-slider :disabled="isSilence" v-model="volume" @change="onVolumeChange"></el-slider>
             </div>
             <!-- github -->
             <Icon :size="20" @click="goGitHub" class="mode-item" type="github" />

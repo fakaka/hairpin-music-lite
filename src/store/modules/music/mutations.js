@@ -1,8 +1,10 @@
 import { shallowEqual, delDuplicateObj } from '../../../utils/common'
+import storage from 'good-storage'
 
 export default {
     setCurrentSong(state, song) {
         state.currentSong = song
+        storage.set('song', song)
     },
     setCurrentTime(state, time) {
         state.currentTime = time

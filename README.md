@@ -48,7 +48,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 底部
     - [x] 控制
     - [x] 音量
-    - [ ] 当前歌曲
+    - [x] 当前歌曲
 - [ ] 设置
 - [ ] 持续集成
     - [x] github page
@@ -57,3 +57,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## ChangeLog
 
+### 0.2
+*2020-08-21*
+
+- 基本功能实现
