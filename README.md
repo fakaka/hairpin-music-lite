@@ -1,6 +1,7 @@
 # hairpin-music-lite
 > 一个网页版的音乐播放器页面  
 > ~~众所周知没有做过播放器的前端是不完整~~  
+> 源码地址 <https://github.com/fakaka/hairpin-music-lite>
 > 预览地址 <https://hairpin-music-lite.vercel.app>
 
 ## Project setup
@@ -26,6 +27,8 @@ yarn run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+
+
 ## 参考资料
 
 ### 音乐界面 UI
@@ -38,24 +41,22 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## RoadMap
 - [ ] 头部
     - [ ] logo
-    - [x] 皮肤
-    - [x] 布局
-    - [x] 路由
 - [ ] 左侧
-    - [x] 用户
-    - [x] 歌单
-    - [x] 封面和歌词
 - [ ] 底部
-    - [x] 控制
-    - [x] 音量
-    - [x] 当前歌曲
 - [ ] 设置
 - [ ] 持续集成
-    - [x] github page
-    - [ ] ~~服务器~~
 
 
 ## ChangeLog
+
+### 0.3
+*2020-08-21*
+
+- 在本地打开
+- 增加 缓存歌曲的功能
+- 增加音量控制
+- 增加 欢迎语
+- 测试 CI
 
 ### 0.2
 *2020-08-21*
