@@ -4,6 +4,9 @@ import storage from 'good-storage'
 export default {
     setCurrentSong(state, song) {
         state.currentSong = song
+        if (song.name) {
+            document.title = song.name
+        }
         storage.set('song', song)
     },
     setCurrentTime(state, time) {
