@@ -38,7 +38,7 @@
         </div>
 
         <div class="mode">
-            <!-- <Share :shareUrl="shareUrl" class="mode-item" v-show="hasCurrentSong" /> -->
+            <Icon :size="20" @click="openLocal" class="mode-item" type="share" />
 
             <!-- 模式 -->
             <el-tooltip placement="top" :content="playModeText" effect="light">
@@ -151,6 +151,12 @@ export default {
         },
         getIconType() {
             return this.isSilence ? 'silence' : 'horn'
+        },
+        openLocal() {
+            // music://./share/163?musicId=632817
+            if (this.currentSong && this.currentSong.id) {
+                window.open(`music://./share/163?musicId=${this.currentSong.id}`)
+            }
         },
         toggleSilence() {
             if (this.isSilence) {
