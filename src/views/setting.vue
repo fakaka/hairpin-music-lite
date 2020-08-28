@@ -1,30 +1,39 @@
 <template>
-    <div>
-        setting
+    <div class="setting">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="主题" name="theme"> </el-tab-pane>
+            <el-tab-pane label="关于" name="about">
+                <p>
+                    网页播放器
+                </p>
+                版本 {{ version }}
+            </el-tab-pane>
+        </el-tabs>
     </div>
 </template>
 
 <script>
+import config from '../../package.json'
 
 export default {
     name: 'setting',
     props: {},
     data() {
         return {
-            //
+            activeName: 'about',
+            version: config.version
         }
     },
     computed: {},
-    methods: {
-    },
+    methods: {},
     created() {},
     mounted() {},
-    components: {
-
-    }
+    components: {}
 }
 </script>
 
 <style lang="scss" scoped>
-
+.setting {
+    padding: 0 16px;
+}
 </style>
