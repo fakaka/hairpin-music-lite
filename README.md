@@ -1,8 +1,8 @@
 # hairpin-music-lite
 > 一个网页版的音乐播放器页面  
 > ~~众所周知没有做过播放器的前端是不完整~~  
-> 源码地址 <https://github.com/fakaka/hairpin-music-lite>
-> 预览地址 <https://hairpin-music-lite.vercel.app>
+> 源码地址 <https://github.com/fakaka/hairpin-music-lite>  
+> 预览地址 <https://hairpin-music-lite.vercel.app>  
 
 ## Project setup
 ```
