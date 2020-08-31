@@ -45,6 +45,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 底部
 - [ ] 设置
 - [ ] 持续集成
+- [ ] 快捷键
+    - [ ] 播放/暂停
+    - [ ] 上下首
+    - [ ] 搜索
 
 
 ## ChangeLog

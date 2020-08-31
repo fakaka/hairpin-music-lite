@@ -1,7 +1,6 @@
 <template>
     <div class="setting">
         <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="主题" name="theme"> </el-tab-pane>
             <el-tab-pane label="关于" name="about">
                 <p>
                     网页播放器

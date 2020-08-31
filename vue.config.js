@@ -5,6 +5,9 @@ function resolve(dir) {
 }
 
 module.exports = {
+    devServer: {
+        port: 8082
+    },
     lintOnSave: false,
     chainWebpack: (config) => {
         config.resolve.alias

@@ -4,7 +4,8 @@ import { Loading } from 'element-ui'
 // import store from '@/store'
 import storage from 'good-storage'
 
-const BASE_URL = storage.get('__BASE_URL__', 'https://api.mtnhao.com/')
+// 'https://api.mtnhao.com/'
+const BASE_URL = storage.get('__BASE_URL__', 'http://www.hairpin.top/music/')
 // 不带全局loading的请求实例
 export const requestWithoutLoading = createBaseInstance()
 // 带全局loading的请求实例
@@ -22,7 +23,7 @@ function createBaseInstance() {
         function(config) {
             //根据storage内容动态设置 baseurl
             // console.log(config.url)
-            // let baseUrl = storage.get('__BASE_URL__', 'https://api.mtnhao.com/')
+            // let baseUrl = storage.get('__BASE_URL__', 'http://www.hairpin.top/music/')
             // config.url = 'http://localhost:3000' + config.url
             return config
         },
