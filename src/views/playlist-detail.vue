@@ -99,10 +99,7 @@ export default {
             return this.inputFocus ? '' : 'inactive'
         },
         scrollToHeader() {
-            const { header } = this.$refs
-            if (header) {
-                scrollInto(header.$el)
-            }
+            scrollInto(document.querySelector('.tabs-wrap'))
         },
         renderNameDesc(scope) {
             const { alias } = scope.row
@@ -146,13 +143,13 @@ export default {
     width: 100%;
     height: 100%;
     overflow: auto;
-    padding-top: 12px;
 
     .tabs-wrap {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin: 0 24px;
+        padding-top: 12px;
         padding-bottom: 12px;
         border-bottom: 1px solid var(--border);
 

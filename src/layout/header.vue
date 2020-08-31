@@ -12,8 +12,7 @@
                 <Icon :backdrop="true" type="forward" @click="forward" />
             </div>
             <div class="welcome">
-                <!-- 聆听好时光 -->
-                <span v-if="spDay">余生有你，满心欢喜 - 七夕特别版</span>
+                <span v-if="welcome">{{ welcome }}</span>
             </div>
         </div>
         <div class="right">
@@ -27,17 +26,18 @@
 
 <script>
 import ThemeChooser from '../components/theme-chooser'
+import storage from 'good-storage'
+
+const WELCOME_KEY = 'YOYO_WELCOME'
+
 export default {
     name: 'music-header',
     data() {
         return {
-            spDay: false
+            welcome: storage.get(WELCOME_KEY, '聆听好时光')
         }
     },
-    created() {
-        // if(7/7)
-        this.spDay = true
-    },
+    created() {},
     methods: {
         goHome() {
             this.$router.push('/home')

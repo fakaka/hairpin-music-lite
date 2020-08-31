@@ -5,7 +5,7 @@ export default {
     setCurrentSong(state, song) {
         state.currentSong = song
         if (song.name) {
-            document.title = song.name
+            document.title = '▶ ' + song.name
         }
         storage.set('song', song)
     },
@@ -14,6 +14,12 @@ export default {
     },
     setPlayingState(state, playing) {
         state.playing = playing
+        let oldTitle = document.title
+        if (playing) {
+            document.title = oldTitle.replace('❚❚', '▶')
+        } else {
+            document.title = oldTitle.replace('▶', '❚❚')
+        }
     },
     setPlayMode(state, mode) {
         state.playMode = mode
