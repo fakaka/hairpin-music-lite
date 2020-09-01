@@ -148,10 +148,12 @@ export default {
             }
         }
     },
-    created() {
-        this.updateLyric()
+    created() {},
+    mounted() {
+        if (this.currentSong.id) {
+            this.updateLyric()
+        }
     },
-    mounted() {},
     components: { LyricScroller }
 }
 </script>
