@@ -99,7 +99,10 @@ export default {
             return this.inputFocus ? '' : 'inactive'
         },
         scrollToHeader() {
-            scrollInto(document.querySelector('.tabs-wrap'))
+            let domTab = document.querySelector('.tabs-wrap')
+            if (domTab) {
+                scrollInto(document.querySelector('.tabs-wrap'))
+            }
         },
         renderNameDesc(scope) {
             const { alias } = scope.row
