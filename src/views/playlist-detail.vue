@@ -11,6 +11,9 @@
                     <i class="el-icon-plus" />
                 </div>
             </div>
+            <div @click="openLocal" class="n-button">
+                <span class="middle">本地打开</span>
+            </div>
 
             <el-input
                 :class="getInputCls()"
@@ -88,6 +91,10 @@ export default {
         },
         addAll() {
             this.addPlaylist(this.songs)
+        },
+        openLocal() {
+            let pid = this.playlist.id
+            window.open('music://./share/163?playlistId=' + pid)
         },
         onInputFocus() {
             this.inputFocus = true
@@ -201,9 +208,13 @@ export default {
                 border-bottom-right-radius: 2px;
             }
         }
+        .button-group + .n-button {
+            margin-left: 4px;
+        }
 
         .input {
             width: 125px;
+            margin-left: auto;
 
             &:not(:hover) {
                 &.inactive {

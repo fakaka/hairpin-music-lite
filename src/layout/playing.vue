@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="lrc-container">
-            <div v-if="nolyric">还没有歌词哦~</div>
+            <div v-if="nolyric" class="nolyric">还没有歌词哦~</div>
             <LyricScroller
                 :data="lyric"
                 :options="{ disableTouch: true }"
@@ -181,7 +181,9 @@ export default {
     }
 
     .lrc-container {
+        position: relative;
         height: calc(100% - 220px);
+
         .lyric-wrap {
             height: 100%;
             margin-top: 16px;
@@ -209,6 +211,11 @@ export default {
                     margin-bottom: 8px;
                 }
             }
+        }
+
+        .nolyric {
+            font-size: 14px;
+            @include abs-center();
         }
     }
 }
