@@ -49,6 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     - [ ] 播放/暂停
     - [ ] 上下首
     - [ ] 搜索
+- [ ] 系统媒体键
 
 
 ## ChangeLog

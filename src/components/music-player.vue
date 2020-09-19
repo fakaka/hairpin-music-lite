@@ -89,6 +89,11 @@ export default {
     created() {},
     mounted() {
         this.audio.volume = this.volume / 100
+
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.setActionHandler('play', () => this.play())
+            navigator.mediaSession.setActionHandler('pause', () => this.pause())
+        }
     },
     methods: {
         formatTime(interval) {
