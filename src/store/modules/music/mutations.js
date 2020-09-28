@@ -34,7 +34,7 @@ export default {
         const { playlist: oldPlaylist } = state
         state.playlist = playlist
         // 播放列表未显示 并且两次播放列表的不一样 则弹出提示
-        if (!shallowEqual(oldPlaylist, playlist, 'id')) {
+        if (playlist.length != 0 && !shallowEqual(oldPlaylist, playlist, 'id')) {
             state.isPlaylistPromptShow = true
             setTimeout(() => {
                 state.isPlaylistPromptShow = false

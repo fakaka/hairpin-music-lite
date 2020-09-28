@@ -91,8 +91,10 @@ export default {
         this.audio.volume = this.volume / 100
 
         if ('mediaSession' in navigator) {
-            navigator.mediaSession.setActionHandler('play', () => this.play())
-            navigator.mediaSession.setActionHandler('pause', () => this.pause())
+            navigator.mediaSession.setActionHandler('play', () => this.setPlayingState(true))
+            navigator.mediaSession.setActionHandler('pause', () => this.setPlayingState(false))
+            navigator.mediaSession.setActionHandler('previoustrack', () => this.prev())
+            navigator.mediaSession.setActionHandler('nexttrack', () => this.next())
         }
     },
     methods: {
@@ -199,6 +201,9 @@ export default {
             if (!newSong.id) {
                 this.audio.pause()
                 this.audio.currentTime = 0
+                /* eslint-disable */
+                navigator.mediaSession.metadata = new MediaMetadata({})
+                /* eslint-enable */
                 return
             }
             // 单曲循环
@@ -212,6 +217,19 @@ export default {
             if (this.timer) {
                 clearTimeout(this.timer)
             }
+            /* eslint-disable */
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: newSong.name,
+                artist: newSong.artistsText,
+                album: newSong.albumName,
+                artwork: [
+                    {
+                        src: newSong.img,
+                        sizes: '256x256'
+                    }
+                ]
+            })
+            /* eslint-enable */
             this.timer = setTimeout(() => {
                 this.play()
             }, 1000)

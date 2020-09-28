@@ -23,6 +23,7 @@
 <script>
 import { mapState, mapMutations, mapActions } from '@/store/helper/music'
 import SongTable from '../components/song-table'
+
 export default {
     name: 'play',
     props: {},
@@ -47,8 +48,9 @@ export default {
             return this.inputFocus ? '' : 'inactive'
         },
         clearAll() {
-            
-        }
+            this.clearPlaylist()
+        },
+        ...mapActions(['clearPlaylist'])
     },
     created() {},
     mounted() {},

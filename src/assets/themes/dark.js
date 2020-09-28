@@ -16,7 +16,7 @@ export default {
     ['--shallow-theme-bgcolor-hover']: '#352726',
 
     //header
-    ['--header-bgcolor']: '#252525',
+    ['--header-bgcolor']: '#292929',
     ['--header-font-color']: '#b1b1b1',
     ['--header-input-color']: '#b1b1b1',
     ['--header-input-bgcolor']: '#4B4B4B',
