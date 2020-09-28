@@ -96,6 +96,9 @@ export default {
             navigator.mediaSession.setActionHandler('previoustrack', () => this.prev())
             navigator.mediaSession.setActionHandler('nexttrack', () => this.next())
         }
+
+        document.addEventListener('keydown', this.handleKeyDown)
+        document.addEventListener('keyup', this.handleKeyUp)
     },
     methods: {
         formatTime(interval) {
@@ -192,6 +195,47 @@ export default {
         goGitHub() {
             window.open('https://github.com/fakaka/hairpin-music-lite')
         },
+        handleKeyDown(e) {
+            console.log(e)
+            // if (this.arrKey.length > 0) {
+            //     // a-z的按键 长按去重
+            //     if (this.arrKey.indexOf(e.key.toLowerCase()) >= 0) {
+            //         return
+            //     }
+            // }
+            // this.arrKey.push(e.key.toLowerCase())
+            // this.keydown = this.arrKey.join('+')
+            // console.log('>>>>>>>>keydown')
+            // console.log(this.keydown)
+            // if (this.keydown === 'alt+shift+c') {
+            //     this.keydown = ''
+            //     this.copyPathAction()
+            //     e.preventDefault() // 取消浏览器原有的操作
+            // }
+            // if (this.keydown === 'ctrl+s') {
+            //     this.keydown = ''
+            //     console.log('>>>>保存啦')
+            //     e.preventDefault() // 取消浏览器原有的操作
+            // }
+            if (e.target == document.body) {
+                // 'Space'
+                if (e.keyCode === 32) {
+                    // this.keydown = ''
+                    this.togglePlaying()
+                }
+                if (e.keyCode === 37) {
+                    this.prev()
+                }
+                if (e.keyCode === 39) {
+                    this.next()
+                }
+            }
+        },
+        handleKeyUp(e) {
+            // this.arrKey.splice(this.arrKey.indexOf(e.key.toLowerCase()), 1)
+            // this.keydown = this.arrKey.join('+')
+            e.preventDefault() // 取消浏览器原有的操作
+        },
         ...mapMutations(['setCurrentTime', 'setPlayingState', 'setPlayMode', 'setPlaylistShow', 'setPlayerShow']),
         ...mapActions(['startSong'])
     },
@@ -284,8 +328,12 @@ export default {
             //     'isPlayerShow'
         ]),
         ...mapGetters(['prevSong', 'nextSong'])
-    }
+    },
     // components: { Share }
+    destroyed() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+        document.removeEventListener('keyup', this.handleKeyUp)
+    }
 }
 </script>
 
