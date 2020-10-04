@@ -38,16 +38,16 @@
 <script type="text/ecmascript-6">
 import storage from 'good-storage'
 import { UID_KEY } from '../utils/config'
-import { getUserDetail } from '../api/user'
-// import { confirm } from '@/base/confirm'
+import { isDef } from '../utils/music'
+import { confirm } from '@/base/confirm'
 import { mapActions, mapState, mapGetters } from '@/store/helper/user'
 
 export default {
     created() {
         const uid = storage.get(UID_KEY)
-        // if (isDef(uid)) {
+        if (isDef(uid)) {
             this.onLogin(uid)
-        // }
+        }
     },
     data() {
         return {
@@ -74,9 +74,9 @@ export default {
         },
         detail() {
             // this.$router.push('/user')
-            // confirm('确定要注销吗？', () => {
-            this.logout()
-            // })
+            confirm('确定要注销吗？', () => {
+                this.logout()
+            })
         },
         ...mapActions(['login', 'logout'])
     },

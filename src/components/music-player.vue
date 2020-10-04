@@ -459,8 +459,8 @@ export default {
         .play-icon {
             @include flex-center();
             position: relative;
-            width: 45px;
-            height: 45px;
+            width: 44px;
+            height: 44px;
             margin: 0 16px;
             border-radius: 50%;
             background: $theme-color;

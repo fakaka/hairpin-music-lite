@@ -21,6 +21,9 @@ Vue.use(VueLazyload, {
     loading: EMPTY_IMG,
     error: EMPTY_IMG
 })
+import { toRem } from './utils/rem'
+
+Vue.prototype.$toRem = toRem
 
 const requireComponent = require.context('./base', true, /[a-z0-9]+\.(jsx?|vue)$/i)
 // 批量注册base组件
