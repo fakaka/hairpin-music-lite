@@ -47,6 +47,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 持续集成
 - [ ] 快捷键
 - [ ] 系统媒体键
+- [ ] 播放列表
+    - [x] 清除
+    - [x] 删除
+    - [x] 缓存本地
 
 
 ## ChangeLog

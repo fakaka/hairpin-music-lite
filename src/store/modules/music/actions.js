@@ -21,6 +21,9 @@ export default {
         commit('setPlayingState', false)
         commit('setCurrentTime', 0)
     },
+    removeSong({ commit }, song) {
+        commit('removeSong', song)
+    },
     clearPlaylist({ commit, dispatch }) {
         commit('setPlaylist', [])
         dispatch('clearCurrentSong')

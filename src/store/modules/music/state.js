@@ -16,5 +16,5 @@ export default {
     // 歌曲详情页显示
     isPlayerShow: false,
     // 播放列表数据
-    playlist: []
+    playlist: storage.get('playlist', [])
 }

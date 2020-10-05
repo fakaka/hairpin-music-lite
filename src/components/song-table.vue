@@ -8,7 +8,7 @@ export default {
     props: {
         hideColumns: {
             type: Array,
-            default: () => []
+            default: () => ['operate']
         },
         songs: {
             type: Array,
@@ -114,6 +114,16 @@ export default {
                             return <span>{formatTime(scope.row.durationSecond)}</span>
                         }
                     }
+                },
+                {
+                    prop: 'operate',
+                    label: '操作',
+                    width: '100',
+                    scopedSlots: {
+                        default: () => {
+                            return <span class="operate">删除</span>
+                        }
+                    }
                 }
             ]
         }
@@ -143,6 +153,11 @@ export default {
             }
             return retCls.join(' ')
         },
+        removeSong(row, column) {
+            if (column && column.label == '操作') {
+                this.$emit('remove-song', row)
+            }
+        },
         ...mapMutations(['setPlaylist']),
         ...mapActions(['startSong'])
     },
@@ -168,6 +183,7 @@ export default {
             attrs,
             on: {
                 ...this.$listeners,
+                ['row-click']: this.removeSong,
                 ['row-dblclick']: this.onRowClick
             },
             props: {
@@ -267,6 +283,14 @@ function genPropsAndAttrs(rawAttrs, componentProps) {
             &.nocopyright {
                 color: #bebebe;
             }
+        }
+    }
+
+    .operate {
+        cursor: pointer;
+
+        &:hover {
+            color: $theme-color;
         }
     }
 }

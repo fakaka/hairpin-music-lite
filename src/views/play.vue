@@ -16,7 +16,7 @@
                 v-model="searchValue"
             ></el-input>
         </div>
-        <SongTable :songs="playlist" class="table" stripe />
+        <SongTable :songs="playlist" class="table" stripe :hideColumns="hideColumns" @remove-song="removeSong" />
     </div>
 </template>
 
@@ -31,7 +31,8 @@ export default {
         return {
             //
             inputFocus: false,
-            searchValue: ''
+            searchValue: '',
+            hideColumns: []
         }
     },
     computed: {
@@ -47,10 +48,14 @@ export default {
         getInputCls() {
             return this.inputFocus ? '' : 'inactive'
         },
+        removeSong(song) {
+            console.log(song)
+            this.removeSong(song)
+        },
         clearAll() {
             this.clearPlaylist()
         },
-        ...mapActions(['clearPlaylist'])
+        ...mapActions(['clearPlaylist', 'removeSong'])
     },
     created() {},
     mounted() {},
