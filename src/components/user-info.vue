@@ -12,7 +12,7 @@
         </div>
 
         <!-- 登录框 -->
-        <el-dialog :modal="false" :visible.sync="visible" width="360px">
+        <el-dialog :modal="false" :visible.sync="visible" :close-on-click-modal="false" width="360px">
             <p slot="title">登录</p>
             <div class="login-body">
                 <el-input class="input" placeholder="请输入您的网易云uid" v-model="uid" />
@@ -44,7 +44,7 @@ import { mapActions, mapState, mapGetters } from '@/store/helper/user'
 
 export default {
     created() {
-        const uid = storage.get(UID_KEY)
+        const uid = storage.get(UID_KEY, '269342361')
         if (isDef(uid)) {
             this.onLogin(uid)
         }
