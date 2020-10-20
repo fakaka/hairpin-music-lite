@@ -5,7 +5,7 @@ import { Loading } from 'element-ui'
 import storage from 'good-storage'
 
 // 'https://api.mtnhao.com/'
-const BASE_URL = storage.get('__BASE_URL__', 'https://www.hairpin.top/music/')
+const BASE_URL = storage.get('__BASE_URL__', 'https://www.hairpin.top/music/163')
 // 不带全局loading的请求实例
 export const requestWithoutLoading = createBaseInstance()
 // 带全局loading的请求实例
