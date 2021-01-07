@@ -190,7 +190,7 @@ export default {
         }
 
         .plus-button {
-            line-height: 22px;
+            line-height: 18px;
             background: $theme-color;
         }
 
@@ -200,7 +200,7 @@ export default {
             .n-button {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
-                height: 28px;
+                // height: 28px;
             }
 
             .n-button + .n-button {
