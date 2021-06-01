@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, markRaw } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -31,7 +31,7 @@ requireComponent.keys().forEach((fileName) => {
     const componentConfig = requireComponent(fileName)
     const componentName = componentConfig.default.name
     if (componentName) {
-        app.component(componentName, componentConfig.default || componentConfig)
+        app.component(componentName, markRaw(componentConfig.default || componentConfig))
     }
 })
 

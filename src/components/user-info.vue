@@ -12,8 +12,10 @@
         </div>
 
         <!-- 登录框 -->
-        <el-dialog :modal="false" :visible.sync="visible" :close-on-click-modal="false" width="360px">
-            <p slot="title">登录</p>
+        <el-dialog :modal="false" v-model="visible" :close-on-click-modal="false" width="360px">
+            <template #title>
+                <p>登录</p>
+            </template>
             <div class="login-body">
                 <el-input class="input" placeholder="请输入您的网易云uid" v-model="uid" />
                 <div class="login-help">
@@ -23,14 +25,16 @@
                     </p>
                     <p class="help">2、点击页面右上角的“登录”</p>
                     <p class="help">3、点击您的头像，进入我的主页</p>
-                    <p class="help">
-                        4、复制浏览器地址栏 /user/home?id= 后面的数字（网易云 UID）
-                    </p>
+                    <p class="help">4、复制浏览器地址栏 /user/home?id= 后面的数字（网易云 UID）</p>
                 </div>
             </div>
-            <span class="dialog-footer" slot="footer">
-                <el-button :loading="loading" @click="onLogin(uid)" class="login-btn" type="primary">登 录</el-button>
-            </span>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button :loading="loading" @click="onLogin(uid)" class="login-btn" type="primary"
+                        >登 录</el-button
+                    >
+                </span>
+            </template>
         </el-dialog>
     </div>
 </template>

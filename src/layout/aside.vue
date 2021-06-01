@@ -3,7 +3,7 @@
         <user-info></user-info>
         <div class="menu-warp-fixed">
             <ul class="menu-list">
-                <router-link to="/play" active-class="menu-item-active" class="menu-item" custom>
+                <router-link to="/play" active-class="menu-item-active" custom>
                     <li class="menu-item">
                         <Icon :size="16" type="music" class="iconfont" />
                         <span class="menu-title">播放列表</span>

@@ -49,6 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 系统媒体键
 - [ ] 播放列表
 - [ ] 使用 Vue3 + TS
+- [ ] 规范 'plugin:vue/vue3-recommended',
 
 
 ## ChangeLog

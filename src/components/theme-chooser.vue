@@ -1,6 +1,6 @@
 <template>
     <div class="theme">
-        <el-popover placement="top" v-model="visible" width="200">
+        <el-popover placement="top" v-model:visible="visible" width="200">
             <div class="themes">
                 <div
                     :key="index"

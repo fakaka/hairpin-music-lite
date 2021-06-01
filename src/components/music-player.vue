@@ -5,7 +5,7 @@
         <div class="song">
             <template v-if="hasCurrentSong">
                 <div @click="togglePlayerShow" class="img-wrap">
-                    <img sec="currentSong.img" class="blur" />
+                    <img :src="currentSong.img" class="blur" />
                     <!-- <div class="player-control">
                         <Icon :size="24" :type="playControlIcon" color="white" />
                     </div> -->
@@ -27,7 +27,7 @@
         <!-- 控制台 -->
         <div class="control">
             <Icon :size="24" @click="prev" class="icon" type="prev" />
-            <el-popover :value="isPlayErrorPromptShow" placement="top" trigger="manual" width="160">
+            <el-popover v-model:visible="isPlayErrorPromptShow" placement="top" trigger="manual" width="160">
                 <p>请点击开始播放。</p>
                 <template #reference>
                     <div @click="togglePlaying" class="play-icon">

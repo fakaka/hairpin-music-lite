@@ -1,5 +1,4 @@
 <script>
-import { ElTable } from 'element-plus'
 import HighlightText from './HighlightText'
 import { mapMutations, mapActions, mapState } from '@/store/helper/music'
 import { pad, genImgUrl, formatTime } from '../utils/music'
@@ -176,27 +175,20 @@ export default {
         ...mapState(['currentSong'])
     },
     render() {
-        const elTableProps = ElTable.props
-        // 从$attrs里提取作为prop的值
-        const { props, attrs } = genPropsAndAttrs(this.$attrs, elTableProps)
-        console.log(this.$attrs)
-        const tableAttrs = {
-            attrs,
-            on: {
-                // ...this.$listeners,
-                ['row-click']: this.removeSong,
-                ['row-dblclick']: this.onRowClick
-            },
-            props: {
-                ...props,
-                cellClassName: this.tableCellClassName,
-                headerCellClassName: 'title-th',
-                data: this.songs
-            }
+        // console.log(this.$attrs)
+        const listeners = {
+            // ['row-click']: this.removeSong,
+            // ['row-dblclick']: this.onRowClick,
+            onRowDblclick: this.onRowClick
         }
-        console.log(this.songs)
+        const props = {
+            cellClassName: this.tableCellClassName,
+            headerCellClassName: 'title-th',
+            data: this.songs,
+            ...this.$attrs
+        }
         return this.songs.length ? (
-            <el-table class="song-table" {...tableAttrs.props}>
+            <el-table class="song-table" {...listeners} {...props}>
                 {this.showColumns.map((column, index) => {
                     const { scopedSlots, ...columnProps } = column
                     return <el-table-column key={index} {...columnProps} v-slots={scopedSlots}></el-table-column>
@@ -206,20 +198,6 @@ export default {
             <div class="list-empty">快去收藏你喜欢的音乐吧</div>
         ) : null
     }
-}
-
-function genPropsAndAttrs(rawAttrs, componentProps) {
-    const props = {}
-    const attrs = {}
-    Object.keys(rawAttrs).forEach((key) => {
-        const value = rawAttrs[key]
-        if (componentProps.hasOwnProperty(key)) {
-            props[key] = value
-        } else {
-            attrs[key] = value
-        }
-    })
-    return { props, attrs }
 }
 </script>
 
