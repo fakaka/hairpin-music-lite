@@ -1,5 +1,5 @@
 <script>
-import ElTable from 'element-ui/lib/table'
+import { ElTable } from 'element-plus'
 import HighlightText from './HighlightText'
 import { mapMutations, mapActions, mapState } from '@/store/helper/music'
 import { pad, genImgUrl, formatTime } from '../utils/music'
@@ -59,7 +59,7 @@ export default {
                         default: (scope) => {
                             return (
                                 <div class="img-wrap">
-                                    <img v-lazy={genImgUrl(scope.row.img, 120)} />
+                                    <img src={genImgUrl(scope.row.img, 120)} />
                                     <div class="play-icon-wrap">
                                         <Icon class="play-icon" type="play" />
                                     </div>
@@ -179,10 +179,11 @@ export default {
         const elTableProps = ElTable.props
         // 从$attrs里提取作为prop的值
         const { props, attrs } = genPropsAndAttrs(this.$attrs, elTableProps)
+        console.log(this.$attrs)
         const tableAttrs = {
             attrs,
             on: {
-                ...this.$listeners,
+                // ...this.$listeners,
                 ['row-click']: this.removeSong,
                 ['row-dblclick']: this.onRowClick
             },
@@ -193,11 +194,12 @@ export default {
                 data: this.songs
             }
         }
+        console.log(this.songs)
         return this.songs.length ? (
-            <el-table class="song-table" {...tableAttrs}>
+            <el-table class="song-table" {...tableAttrs.props}>
                 {this.showColumns.map((column, index) => {
                     const { scopedSlots, ...columnProps } = column
-                    return <el-table-column key={index} props={columnProps} scopedSlots={scopedSlots}></el-table-column>
+                    return <el-table-column key={index} {...columnProps} v-slots={scopedSlots}></el-table-column>
                 })}
             </el-table>
         ) : !this.highlightText ? (

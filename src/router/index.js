@@ -1,10 +1,5 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-
-const PlaylistDetail = () => import(/* webpackChunkName: "PlaylistDetail" */ '@/views/playlist-detail')
-
-Vue.use(VueRouter)
 
 const routes = [
     {
@@ -20,7 +15,7 @@ const routes = [
     {
         path: '/playlist/:id',
         name: 'playlist',
-        component: PlaylistDetail
+        component: () => import(/* webpackChunkName: "PlaylistDetail" */ '@/views/playlist-detail')
     },
     {
         path: '/about',
@@ -42,7 +37,8 @@ const routes = [
     }
 ]
 
-const router = new VueRouter({
+const router = createRouter({
+    history: createWebHashHistory(),
     routes
 })
 

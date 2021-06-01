@@ -1,4 +1,4 @@
-import { Notification } from 'element-ui'
+import { ElNotification } from 'element-plus'
 
 export function pad(num, n = 2) {
     let len = num.toString().length
@@ -106,7 +106,7 @@ export function notify(message, type) {
         message,
         duration: 1500
     }
-    const fn = type ? Notification[type] : Notification
+    const fn = type ? ElNotification[type] : ElNotification
     return fn(params)
 }
 ;['success', 'warning', 'info', 'error'].forEach((key) => {

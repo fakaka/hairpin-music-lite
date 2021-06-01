@@ -3,13 +3,17 @@
         <user-info></user-info>
         <div class="menu-warp-fixed">
             <ul class="menu-list">
-                <router-link to="/play" active-class="menu-item-active" class="menu-item" tag="li">
-                    <Icon :size="16" type="music" class="iconfont" />
-                    <span class="menu-title">播放列表</span>
+                <router-link to="/play" active-class="menu-item-active" class="menu-item" custom>
+                    <li class="menu-item">
+                        <Icon :size="16" type="music" class="iconfont" />
+                        <span class="menu-title">播放列表</span>
+                    </li>
                 </router-link>
-                <router-link to="/playlist/3778678" active-class="menu-item-active" class="menu-item" tag="li">
-                    <Icon :size="16" type="rank" class="iconfont" />
-                    <span class="menu-title">热歌榜</span>
+                <router-link to="/playlist/3778678" active-class="menu-item-active" custom>
+                    <li class="menu-item">
+                        <Icon :size="16" type="rank" class="iconfont" />
+                        <span class="menu-title">热歌榜</span>
+                    </li>
                 </router-link>
             </ul>
             <!-- <router-link to="/about" active-class="menu-item-active" class="menu-item">排行榜</router-link> -->
@@ -22,12 +26,14 @@
                         :key="item.id"
                         :to="item.path"
                         active-class="menu-item-active"
-                        class="menu-item"
-                        tag="li"
                         v-for="item in menu.children"
+                        custom
+                        v-slot="{ navigate, isActive }"
                     >
-                        <Icon :size="16" :type="item.meta.icon" class="iconfont" />
-                        <span class="menu-title">{{ item.meta.title }}</span>
+                        <li class="menu-item" :class="{ 'menu-item-active': isActive }" @click="navigate">
+                            <Icon :size="16" :type="item.meta.icon" class="iconfont" />
+                            <span class="menu-title">{{ item.meta.title }}</span>
+                        </li>
                     </router-link>
                 </ul>
             </div>

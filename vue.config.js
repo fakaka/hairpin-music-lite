@@ -6,7 +6,17 @@ function resolve(dir) {
 
 module.exports = {
     devServer: {
-        port: 8082
+        port: 8082,
+        proxy: {
+            '/api': {
+                target: 'https://www.hairpin.top/music/163', // target host
+                ws: true, // proxy websockets
+                changeOrigin: true, // needed for virtual hosted sites
+                pathRewrite: {
+                    '^/api': '' // rewrite path
+                }
+            }
+        }
     },
     lintOnSave: false,
     chainWebpack: (config) => {

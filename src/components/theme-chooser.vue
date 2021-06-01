@@ -12,7 +12,9 @@
                     <p :class="{ active: currentTheme == themeKey }">{{ themeValue.title }}</p>
                 </div>
             </div>
-            <Icon :backdrop="true" slot="reference" type="skin" />
+            <template #reference>
+                <Icon :backdrop="true" type="skin" />
+            </template>
         </el-popover>
     </div>
 </template>
@@ -129,7 +131,7 @@ export default {
             }
         }
     },
-    destroyed() {
+    unmounted() {
         this.handlerListener(false)
     },
     components: {}

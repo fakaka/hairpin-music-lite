@@ -5,7 +5,7 @@
         <div class="song">
             <template v-if="hasCurrentSong">
                 <div @click="togglePlayerShow" class="img-wrap">
-                    <img v-lazy="currentSong.img" class="blur" />
+                    <img sec="currentSong.img" class="blur" />
                     <!-- <div class="player-control">
                         <Icon :size="24" :type="playControlIcon" color="white" />
                     </div> -->
@@ -29,9 +29,11 @@
             <Icon :size="24" @click="prev" class="icon" type="prev" />
             <el-popover :value="isPlayErrorPromptShow" placement="top" trigger="manual" width="160">
                 <p>请点击开始播放。</p>
-                <div @click="togglePlaying" class="play-icon" slot="reference">
-                    <Icon :size="24" :type="playIcon" />
-                </div>
+                <template #reference>
+                    <div @click="togglePlaying" class="play-icon">
+                        <Icon :size="24" :type="playIcon" />
+                    </div>
+                </template>
             </el-popover>
 
             <Icon :size="24" @click="next" class="icon" type="next" />
@@ -170,7 +172,7 @@ export default {
                 } else if (permissionNow === 'denied') {
                     console.log('用户拒绝了你!!!')
                 } else {
-                    NotificationInstance.requestPermission(function(PERMISSION) {
+                    NotificationInstance.requestPermission(function (PERMISSION) {
                         if (PERMISSION !== 'granted') {
                             console.log('用户无情残忍的拒绝了你!!!')
                         }
@@ -353,7 +355,7 @@ export default {
         ...mapGetters(['prevSong', 'nextSong'])
     },
     // components: { Share }
-    destroyed() {
+    unmounted() {
         document.removeEventListener('keydown', this.handleKeyDown)
         document.removeEventListener('keyup', this.handleKeyUp)
     }
@@ -501,7 +503,7 @@ export default {
                 margin-left: 12px;
                 width: 130px;
 
-                ::v-deep .el-slider__runway {
+                :deep(.el-slider__runway) {
                     height: 4px;
                     background-color: var(--progress-bgcolor);
 

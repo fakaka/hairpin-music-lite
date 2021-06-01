@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import Vue from 'vue'
+import { createApp } from 'vue'
 const Confirm = {
     name: 'Confirm',
     props: ['visible', 'text', 'title', 'onConfirm'],
@@ -26,13 +26,13 @@ export default Confirm
 // 单例减少开销
 let instanceCache
 // 命令式调用
-export const confirm = function(text, title, onConfirm = () => {}) {
+export const confirm = function (text, title, onConfirm = () => {}) {
     if (typeof title === 'function') {
         onConfirm = title
         title = undefined
     }
 
-    const ConfirmCtor = Vue.extend(Confirm)
+    const ConfirmCtor = createApp(Confirm)
     const getInstance = () => {
         if (!instanceCache) {
             instanceCache = new ConfirmCtor({
@@ -64,7 +64,7 @@ export const confirm = function(text, title, onConfirm = () => {}) {
 
 <style lang="scss" scoped>
 .confirm-dialog {
-    ::v-deep(.el-dialog__body) {
+    :deep(.el-dialog__body) {
         padding-top: 20px;
         padding-bottom: 20px;
     }

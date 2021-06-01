@@ -1,11 +1,11 @@
 import axios from 'axios'
-import { Loading } from 'element-ui'
+import { ElLoading } from 'element-plus'
 // import { confirm } from '@/base/confirm'
 // import store from '@/store'
 import storage from 'good-storage'
 
 // 'https://api.mtnhao.com/'
-const BASE_URL = storage.get('__BASE_URL__', 'https://www.hairpin.top/music/163')
+const BASE_URL = storage.get('__BASE_URL__', 'api')
 // 不带全局loading的请求实例
 export const requestWithoutLoading = createBaseInstance()
 // 带全局loading的请求实例
@@ -54,7 +54,7 @@ function mixinLoading(interceptors) {
 
     function loadingRequestInterceptor(config) {
         if (!loading) {
-            loading = Loading.service({
+            loading = ElLoading.service({
                 target: 'body',
                 background: 'transparent',
                 text: '加载中...'
