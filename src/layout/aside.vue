@@ -3,14 +3,14 @@
         <user-info></user-info>
         <div class="menu-warp-fixed">
             <ul class="menu-list">
-                <router-link to="/play" active-class="menu-item-active" custom>
-                    <li class="menu-item">
+                <router-link to="/play" custom v-slot="{ navigate, isActive }">
+                    <li class="menu-item" :class="{ 'menu-item-active': isActive }" @click="navigate">
                         <Icon :size="16" type="music" class="iconfont" />
                         <span class="menu-title">播放列表</span>
                     </li>
                 </router-link>
-                <router-link to="/playlist/3778678" active-class="menu-item-active" custom>
-                    <li class="menu-item">
+                <router-link to="/playlist/3778678" custom v-slot="{ navigate, isActive }">
+                    <li class="menu-item" :class="{ 'menu-item-active': isActive }" @click="navigate">
                         <Icon :size="16" type="rank" class="iconfont" />
                         <span class="menu-title">热歌榜</span>
                     </li>
