@@ -73,6 +73,11 @@
     @include box-shadow;
 }
 
+.el-popper__arrow:before {
+    border: 1px solid var(--prompt-bg-color) !important;
+    background: var(--prompt-bg-color) !important;
+}
+
 // input
 $input-height: 24px;
 @mixin el-input-style($color, $bg-color, $placeholder-color) {
