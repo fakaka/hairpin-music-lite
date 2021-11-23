@@ -36,6 +36,7 @@ export const confirm = function (text, title, onConfirm = () => {}) {
     const getInstance = () => {
         if (!instanceCache) {
             instanceCache = new ConfirmCtor({
+            // instanceCache = new ConfirmCtor({
                 propsData: {
                     text,
                     title,

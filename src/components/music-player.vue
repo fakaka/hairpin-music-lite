@@ -142,7 +142,7 @@ export default {
         error(err) {
             this.$message('播放失败，可能无版权，准备播放下一首')
             this.songReady = true
-            this.next()
+            // this.next()
         },
         prev() {
             if (this.songReady) {

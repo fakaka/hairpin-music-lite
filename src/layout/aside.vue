@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import UserInfo from '../components/user-info'
+import UserInfo from '../components/user-info.vue'
 import { mapGetters } from '@/store/helper/user'
 
 export default {
@@ -90,6 +90,7 @@ export default {
                     @include text-ellipsis;
                     padding: 8px 18px;
                     cursor: pointer;
+                    transition: background 0.3s;
 
                     &:hover {
                         background: var(--menu-item-hover-bg);

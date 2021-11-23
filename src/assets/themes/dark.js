@@ -24,8 +24,8 @@ export default {
 
     //menu
     ['--menu-bgcolor']: '#202020',
-    ['--menu-item-hover-bg']: '#1d1d1d',
-    ['--menu-item-active-bg']: '#1b1b1b',
+    ['--menu-item-hover-bg']: '#323232',
+    ['--menu-item-active-bg']: '#323232',
 
     //player
     ['--player-bgcolor']: '#252525',
