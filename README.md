@@ -11,21 +11,12 @@ yarn
 
 ### Compiles and hot-reloads for development
 ```
-yarn run dev
+yarn dev
 ```
-
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build
 ```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
@@ -39,20 +30,28 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ## RoadMap
-- [ ] 头部
+- 头部
     - [ ] logo
-- [ ] 左侧
-- [ ] 底部
-- [ ] 设置
-- [ ] 持续集成
-- [ ] 快捷键
-- [ ] 系统媒体键
+- 左侧
+- 底部
+- 设置
+- 持续集成
+- 快捷键
+  - [ ] 系统媒体键
 - [ ] 播放列表
-- [ ] 使用 Vue3 + TS
-- [ ] 规范 'plugin:vue/vue3-recommended',
+- [x] 使用 Vue3 + ~~TS~~
+- [ ] 规范 'plugin:vue/vue3-recommended'
+- [ ] v0.6
+    - [ ] 兼容 vue3 以及周边
+    - [ ] 使用 vue3 setup 语法重构
 
 
 ## ChangeLog
+
+### 0.5
+*2021-11-25*
+- 升级 依赖
+- 重构 vue-cli 迁移到 vite
 
 ### 0.4
 *2020-09-28*
