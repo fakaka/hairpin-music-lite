@@ -8,7 +8,7 @@
                     <span class="middle">播放全部 ({{ songs.length }})</span>
                 </div>
                 <div @click="addAll" class="n-button plus-button">
-                    <i class="el-icon-plus" />
+                    <el-icon><plus /></el-icon>
                 </div>
             </div>
             <div @click="openLocal" class="n-button">
@@ -21,9 +21,12 @@
                 @focus="onInputFocus"
                 class="input"
                 placeholder="搜索歌单音乐"
-                prefix-icon="el-icon-search"
                 v-model="searchValue"
-            ></el-input>
+            >
+                <template #prefix>
+                    <el-icon class="el-input__icon"><search /></el-icon>
+                </template>
+            </el-input>
         </div>
         <div class="empty" v-if="searchValue && !filteredSongs.length">
             未能找到和 <span class="keyword">“{{ searchValue }}”</span> 相关的任何音乐
@@ -43,6 +46,8 @@ import { mapActions, mapMutations } from '@/store/helper/music.js'
 import SongTable from '../components/song-table.vue'
 import { createSong, scrollInto } from '../utils/music'
 import { getListDetail, getSongDetail } from '../api/song'
+
+import { Plus, Search } from '@element-plus/icons'
 
 const MAX = 500
 export default {
@@ -143,7 +148,9 @@ export default {
     },
     components: {
         // DetailHeader,
-        SongTable
+        SongTable,
+        Plus,
+        Search
     }
 }
 </script>

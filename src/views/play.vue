@@ -12,9 +12,12 @@
                 @focus="onInputFocus"
                 class="input"
                 placeholder="搜索歌单音乐"
-                prefix-icon="el-icon-search"
                 v-model="searchValue"
-            ></el-input>
+            >
+                <template #prefix>
+                    <el-icon class="el-input__icon"><search /></el-icon>
+                </template>
+            </el-input>
         </div>
         <SongTable :songs="playlist" class="table" stripe :hideColumns="hideColumns" @remove-song="removeSong" />
     </div>

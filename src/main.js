@@ -12,19 +12,19 @@ const app = createApp(App)
 import ElementPlus from 'element-plus'
 
 import 'element-plus/dist/index.css'
-// import 'element-plus/lib/theme-chalk/index.css'
 import './assets/styles/element-overwrite.scss'
 import './assets/styles/reset.css'
 import './assets/styles/app.scss'
 
-// Vue.use(ElementUI, { size: 'mini' })
+app.use(ElementPlus, { size: 'mini' })
 // Vue.use(VueLazyload, {
 //     loading: EMPTY_IMG,
 //     error: EMPTY_IMG
 // })
-// import { toRem } from './utils/rem'
+import { toRem } from './utils/rem'
 
 // Vue.prototype.$toRem = toRem
+app.config.globalProperties.$toRem = toRem
 
 const requireComponent = import.meta.globEager('./base/*.vue')
 for (const [key, value] of Object.entries(requireComponent)) {
@@ -33,4 +33,4 @@ for (const [key, value] of Object.entries(requireComponent)) {
     app.component(component.name || fileName, markRaw(component))
 }
 
-app.use(ElementPlus).use(store).use(router).mount('#app')
+app.use(store).use(router).mount('#app')

@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :modal="false" :v-model:visible="visible" :width="$toRem(320)" class="confirm-dialog">
+    <el-dialog :modal="false" :v-model:visible="visible" class="confirm-dialog">
         <template #title>
             <div>{{ title || '提示' }}</div>
         </template>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { createApp } from 'vue'
+import { createApp, nextTick } from 'vue'
 const Confirm = {
     name: 'Confirm',
     props: ['visible', 'text', 'title', 'onConfirm'],
@@ -39,16 +39,17 @@ export const confirm = function (text, title, onConfirm = () => {}) {
     const ConfirmCtor = createApp(Confirm)
     const getInstance = () => {
         if (!instanceCache) {
-            instanceCache = new ConfirmCtor({
-                propsData: {
-                    text,
-                    title,
-                    onConfirm
-                }
-            })
+            instanceCache = ConfirmCtor
+            // instanceCache = new ConfirmCtor({
+            //     propsData: {
+            //         text,
+            //         title,
+            //         onConfirm
+            //     }
+            // })
             // 生成dom
-            instanceCache.$mount()
-            document.body.appendChild(instanceCache.$el)
+            instanceCache.mount('#ccc')
+            document.body.appendChild(instanceCache._container)
         } else {
             // 更新属性
             instanceCache.text = text
@@ -60,7 +61,7 @@ export const confirm = function (text, title, onConfirm = () => {}) {
     const instance = getInstance()
     // 确保更新的prop渲染到dom
     // 确保动画效果
-    Vue.nextTick(() => {
+    nextTick(() => {
         instance.visible = true
     })
 }

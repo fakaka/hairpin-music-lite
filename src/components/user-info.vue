@@ -78,7 +78,11 @@ export default {
         },
         detail() {
             // this.$router.push('/user')
-            confirm('确定要注销吗？', () => {
+            this.$confirm('确定要注销吗？', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
                 this.logout()
             })
         },

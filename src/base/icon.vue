@@ -1,5 +1,5 @@
 <script lang="jsx">
-// import { toRem } from '@/utils'
+import { toRem } from '@/utils/rem'
 
 export default {
     name: 'Icon',
@@ -35,8 +35,8 @@ export default {
         getIconStyle() {
             const chromeMinSize = 12
             // 支持小于12px
-            // const retStyle = { fontSize: toRem(this.size) }
-            const retStyle = { fontSize: this.size }
+            const retStyle = { fontSize: toRem(this.size) }
+            // const retStyle = { fontSize: this.size }
             if (this.size < chromeMinSize) {
                 const ratio = this.size / chromeMinSize
                 retStyle.transform = `scale(${ratio})`
@@ -54,8 +54,8 @@ export default {
         )
         if (this.backdrop) {
             const backDropSizeRatio = 1.56
-            // const backDropSize = toRem(backDropSizeRatio * this.size)
-            const backDropSize = Math.round(backDropSizeRatio * this.size) + 'px'
+            const backDropSize = toRem(backDropSizeRatio * this.size)
+            // const backDropSize = Math.round(backDropSizeRatio * this.size) + 'px'
             return (
                 <span style={{ width: backDropSize, height: backDropSize }} class="backdrop">
                     {Icon}
