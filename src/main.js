@@ -1,4 +1,4 @@
-import { createApp, defineAsyncComponent } from 'vue'
+import { createApp, markRaw } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -30,7 +30,7 @@ const requireComponent = import.meta.globEager('./base/*.vue')
 for (const [key, value] of Object.entries(requireComponent)) {
     const fileName = key.slice(key.lastIndexOf('/') + 1, key.lastIndexOf('.'))
     let component = value.default
-    app.component(component.name || fileName, component)
+    app.component(component.name || fileName, markRaw(component))
 }
 
 app.use(ElementPlus).use(store).use(router).mount('#app')

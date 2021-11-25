@@ -1,5 +1,4 @@
 <script lang="jsx">
-import { defineComponent } from 'vue'
 // import { toRem } from '@/utils'
 
 export default {

@@ -1,10 +1,9 @@
 <script lang="jsx">
-import { defineComponent } from 'vue'
 import HighlightText from './HighlightText.vue'
 import { mapMutations, mapActions, mapState } from '@/store/helper/music'
 import { pad, genImgUrl, formatTime } from '../utils/music'
 
-export default defineComponent({
+export default {
     props: {
         hideColumns: {
             type: Array,
@@ -199,7 +198,7 @@ export default defineComponent({
             <div class="list-empty">快去收藏你喜欢的音乐吧</div>
         ) : null
     }
-})
+}
 </script>
 
 <style lang="scss">
