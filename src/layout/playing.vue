@@ -43,7 +43,7 @@
 
 <script>
 import { mapMutations, mapActions, mapState } from '@/store/helper/music'
-import LyricScroller from '../components/lyric-scroller'
+import LyricScroller from '../components/lyric-scroller.vue'
 import { getLyric } from '../api/song'
 import lyricParser from '../utils/lrcparser'
 import { isDef, isUndef } from '../utils/common'

@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import MusicHeader from './layout/header'
-import MusicAside from './layout/aside'
-import MusicPlaying from './layout/playing'
-import MusicFooter from './layout/footer'
+import MusicHeader from './layout/header.vue'
+import MusicAside from './layout/aside.vue'
+import MusicPlaying from './layout/playing.vue'
+import MusicFooter from './layout/footer.vue'
 
 export default {
     name: 'app',

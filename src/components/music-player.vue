@@ -69,7 +69,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
 import Storage from 'good-storage'
 // import Share from '@/components/share'

@@ -1,4 +1,4 @@
-import { createApp, markRaw } from 'vue'
+import { createApp, defineAsyncComponent } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -25,14 +25,11 @@ import './assets/styles/app.scss'
 
 // Vue.prototype.$toRem = toRem
 
-const requireComponent = require.context('./base', true, /[a-z0-9]+\.(jsx?|vue)$/i)
-// 批量注册base组件
-requireComponent.keys().forEach((fileName) => {
-    const componentConfig = requireComponent(fileName)
-    const componentName = componentConfig.default.name
-    if (componentName) {
-        app.component(componentName, markRaw(componentConfig.default || componentConfig))
-    }
-})
+const components = import.meta.glob('./base/*.vue') // 异步方式
+
+for (const [key, value] of Object.entries(components)) {
+    const name = key.slice(key.lastIndexOf('/') + 1, key.lastIndexOf('.'))
+    app.component(name, defineAsyncComponent(value))
+}
 
 app.use(ElementPlus).use(store).use(router).mount('#app')

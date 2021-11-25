@@ -32,5 +32,6 @@ module.exports = {
                 prependData: `@import "~@/assets/styles/vars.scss";`
             }
         }
-    }
+    },
+    productionSourceMap: false,
 }

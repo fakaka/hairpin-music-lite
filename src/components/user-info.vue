@@ -39,11 +39,11 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 import storage from 'good-storage'
 import { UID_KEY } from '../utils/config'
 import { isDef } from '../utils/music'
-import { confirm } from '@/base/confirm'
+import { confirm } from '@/base/confirm.vue'
 import { mapActions, mapState, mapGetters } from '@/store/helper/user'
 
 export default {

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ThemeChooser from '../components/theme-chooser'
+import ThemeChooser from '../components/theme-chooser.vue'
 import storage from 'good-storage'
 
 const WELCOME_KEY = 'YOYO_WELCOME'

@@ -1,14 +1,18 @@
 <template>
-    <el-dialog :modal="false" :visible.sync="visible" :width="$toRem(320)" class="confirm-dialog">
-        <div slot="title">{{ title || '提示' }}</div>
+    <el-dialog :modal="false" :v-model:visible="visible" :width="$toRem(320)" class="confirm-dialog">
+        <template #title>
+            <div>{{ title || '提示' }}</div>
+        </template>
         <div class="confirm-body">{{ text }}</div>
-        <span class="dialog-footer" slot="footer">
-            <el-button @click="confirmAndClose" class="confirm-btn" type="primary">确认</el-button>
-        </span>
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button @click="confirmAndClose" class="confirm-btn" type="primary">确认</el-button>
+            </span>
+        </template>
     </el-dialog>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 import { createApp } from 'vue'
 const Confirm = {
     name: 'Confirm',
@@ -36,7 +40,6 @@ export const confirm = function (text, title, onConfirm = () => {}) {
     const getInstance = () => {
         if (!instanceCache) {
             instanceCache = new ConfirmCtor({
-            // instanceCache = new ConfirmCtor({
                 propsData: {
                     text,
                     title,

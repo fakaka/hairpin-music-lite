@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MusicPlayer from '../components/music-player'
+import MusicPlayer from '../components/music-player.vue'
 export default {
     name: 'music-footer',
     props: {},

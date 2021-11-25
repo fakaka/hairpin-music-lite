@@ -19,7 +19,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 import storage from 'good-storage'
 import variablesDark from '@/assets/themes/dark'
 import variablesWhite from '@/assets/themes/white'

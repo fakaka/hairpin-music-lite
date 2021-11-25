@@ -1,4 +1,4 @@
-<script type="text/ecmascript-6">
+<script>
 // import { toRem } from '@/utils'
 export default {
     name: 'Icon',
