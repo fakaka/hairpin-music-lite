@@ -38,9 +38,9 @@
     </div>
 </template>
 
-<script>
-import { mapActions, mapMutations } from '@/store/helper/music'
-import SongTable from '../components/song-table'
+<script lang="jsx">
+import { mapActions, mapMutations } from '@/store/helper/music.js'
+import SongTable from '../components/song-table.vue'
 import { createSong, scrollInto } from '../utils/music'
 import { getListDetail, getSongDetail } from '../api/song'
 

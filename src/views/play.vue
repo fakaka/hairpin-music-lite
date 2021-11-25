@@ -22,7 +22,7 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from '@/store/helper/music'
-import SongTable from '../components/song-table'
+import SongTable from '../components/song-table.vue'
 
 export default {
     name: 'play',
