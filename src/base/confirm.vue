@@ -1,12 +1,12 @@
 <template>
-    <el-dialog :modal="false" :v-model:visible="visible" class="confirm-dialog">
+    <el-dialog :modal="false" v-model="visible" class="confirm-dialog">
         <template #title>
             <div>{{ title || '提示' }}</div>
         </template>
         <div class="confirm-body">{{ text }}</div>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="confirmAndClose" class="confirm-btn" type="primary">确认</el-button>
+                <el-button size="mini" @click="confirmAndClose" class="confirm-btn" type="primary">确认</el-button>
             </span>
         </template>
     </el-dialog>
@@ -14,10 +14,20 @@
 
 <script>
 import { createApp, nextTick } from 'vue'
+import { ElDialog, ElButton } from 'element-plus'
+
 const Confirm = {
     name: 'Confirm',
-    props: ['visible', 'text', 'title', 'onConfirm'],
+    props: [],
+    data() {
+        return {
+            title: '提示',
+            text: '',
+            visible: false
+        }
+    },
     methods: {
+        onConfirm() {},
         confirmAndClose() {
             this.onConfirm && this.onConfirm()
             this.visible = false
@@ -36,20 +46,20 @@ export const confirm = function (text, title, onConfirm = () => {}) {
         title = undefined
     }
 
-    const ConfirmCtor = createApp(Confirm)
     const getInstance = () => {
         if (!instanceCache) {
-            instanceCache = ConfirmCtor
-            // instanceCache = new ConfirmCtor({
-            //     propsData: {
-            //         text,
-            //         title,
-            //         onConfirm
-            //     }
-            // })
-            // 生成dom
-            instanceCache.mount('#ccc')
-            document.body.appendChild(instanceCache._container)
+            // 创建Toasts实例
+            const ConfirmCtor = createApp(Confirm, {
+                text,
+                title
+                // onConfirm
+            })
+            ConfirmCtor.use(ElDialog)
+            ConfirmCtor.use(ElButton)
+            // 挂载父亲元素
+            let root = document.createElement('div')
+            document.body.appendChild(root)
+            instanceCache = ConfirmCtor.mount(root)
         } else {
             // 更新属性
             instanceCache.text = text
