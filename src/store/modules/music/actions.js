@@ -1,5 +1,7 @@
 import { getSongImg } from '../../../utils/music'
 
+import { notify as notifySong } from '@/utils/notify'
+
 export default {
     // 整合歌曲信息 并且开始播放
     async startSong({ commit, state }, rawSong) {
@@ -15,6 +17,7 @@ export default {
         }
         commit('setCurrentSong', song)
         commit('setPlayingState', true)
+        notifySong(song)
     },
     clearCurrentSong({ commit }) {
         commit('setCurrentSong', {})

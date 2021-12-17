@@ -30,7 +30,7 @@ export default {
             return cls
         },
         onClick(e) {
-            this.$emit('click', e)
+            // this.$emit('click', e)
         },
         getIconStyle() {
             const chromeMinSize = 12
@@ -47,7 +47,7 @@ export default {
     render() {
         const Icon = (
             <i
-                onClick={this.onClick}
+                // onClick={this.onClick}
                 class={`iconfont icon-component ${this.getIconCls()}`}
                 style={this.getIconStyle()}
             />
