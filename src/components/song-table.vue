@@ -56,8 +56,13 @@ export default {
                     width: '100',
                     scopedSlots: {
                         default: (scope) => {
+                            const { row } = scope
+                            const playSong = (e) => {
+                                e.stopPropagation()
+                                this.onRowClick(row)
+                            }
                             return (
-                                <div class="img-wrap">
+                                <div class="img-wrap" onClick={playSong}>
                                     <img src={genImgUrl(scope.row.img, 120)} />
                                     <div class="play-icon-wrap">
                                         <Icon class="play-icon" type="play" />
