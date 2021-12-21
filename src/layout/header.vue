@@ -20,6 +20,9 @@
             <div class="setting-wrap" @click="toSetting">
                 <Icon type="setting" :backdrop="true" />
             </div>
+            <div class="about-wrap" @click="toAbout">
+                <Icon type="setting" :backdrop="true" />
+            </div>
         </div>
     </div>
 </template>
@@ -50,6 +53,9 @@ export default {
         },
         toSetting() {
             this.$router.push('/setting')
+        },
+        toAbout() {
+            this.$router.push('/about')
         }
     },
     components: {

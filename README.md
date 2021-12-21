@@ -40,7 +40,7 @@ yarn build
   - [ ] 系统媒体键
 - [ ] 播放列表
 - [x] 使用 Vue3 + ~~TS~~
-- [ ] 规范 'plugin:vue/vue3-recommended'
+- [x] 规范 'plugin:vue/vue3-recommended'
 - [ ] v0.6
     - [ ] 兼容 vue3 以及周边
     - [ ] 使用 vue3 setup 语法重构
