@@ -19,7 +19,6 @@ yarn build
 ```
 
 
-
 ## 参考资料
 
 ### 音乐界面 UI
@@ -31,7 +30,7 @@ yarn build
 
 ## RoadMap
 - 头部
-    - [ ] logo
+    - [x] logo
 - 左侧
 - 底部
 - 设置
@@ -42,8 +41,9 @@ yarn build
 - [x] 使用 Vue3 + ~~TS~~
 - [x] 规范 'plugin:vue/vue3-recommended'
 - [ ] v0.6
-    - [ ] 兼容 vue3 以及周边
+    - [x] 兼容 vue3 以及周边
     - [ ] 使用 vue3 setup 语法重构
+    - [x] 文件名称大小写
 
 
 ## ChangeLog

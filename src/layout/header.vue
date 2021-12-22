@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="left">
-            <img alt="YOYO logo" src="../assets/logo-2.png" @click="goHome" />
+            <img alt="YOYO logo" src="../assets/logo.png" @click="goHome" />
             <span class="title" title="鹿鸣yoyo">
                 <i>YOYO</i>
             </span>

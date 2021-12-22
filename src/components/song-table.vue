@@ -1,5 +1,5 @@
 <script lang="jsx">
-import HighlightText from './HighlightText.vue'
+import HighlightText from './highlight-text.vue'
 import { mapMutations, mapActions, mapState } from '@/store/helper/music'
 import { pad, genImgUrl, formatTime } from '../utils/music'
 

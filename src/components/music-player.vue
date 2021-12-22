@@ -55,7 +55,7 @@
             <Icon :size="20" @click="goGitHub" class="mode-item" type="github" />
         </div>
         <div class="progress-bar-wrap">
-            <ProgressBar :disabled="!hasCurrentSong" :percent="playedPercent" @percentChange="onProgressChange" />
+            <progress-bar :disabled="!hasCurrentSong" :percent="playedPercent" @percentChange="onProgressChange" />
         </div>
         <audio
             :src="currentSong.url"
@@ -71,7 +71,7 @@
 <script>
 import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
 import Storage from 'good-storage'
-// import Share from '@/components/share'
+import ProgressBar from '.progress-bar.vue'
 import { isDef, pad } from '../utils/music'
 import { playModeMap, VOLUME_KEY } from '../utils/config'
 
@@ -86,6 +86,9 @@ export default {
             lastVolume: 0,
             isSilence: false
         }
+    },
+    components: {
+        ProgressBar
     },
     created() {},
     mounted() {

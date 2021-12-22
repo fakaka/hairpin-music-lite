@@ -2,7 +2,7 @@
     <div class="playing">
         <div class="cover">
             <img :src="currentSong.img" alt="cover" v-if="currentSong.img" />
-            <img v-else src="../assets/logo-2.png" alt="cover" />
+            <img v-else src="../assets/logo.png" alt="cover" />
         </div>
         <div class="desc" v-show="currentSong.id">
             <div class="name-wrap">
