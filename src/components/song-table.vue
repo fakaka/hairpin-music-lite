@@ -1,7 +1,8 @@
 <script lang="jsx">
 import HighlightText from './highlight-text.vue'
-import { mapMutations, mapActions, mapState } from '@/store/helper/music'
-import { pad, genImgUrl, formatTime } from '../utils/music'
+import { useMusicStore } from '@/store'
+import { mapState, mapActions } from 'pinia'
+import { pad, genImgUrl, formatTime } from '@/utils/music'
 
 export default {
     props: {
@@ -162,8 +163,7 @@ export default {
                 this.$emit('remove-song', row)
             }
         },
-        ...mapMutations(['setPlaylist']),
-        ...mapActions(['startSong'])
+        ...mapActions(useMusicStore, ['startSong', 'setPlaylist'])
     },
     computed: {
         showColumns() {
@@ -177,7 +177,7 @@ export default {
                 return !hideColumns.find((hideColumn) => hideColumn === column.prop)
             })
         },
-        ...mapState(['currentSong'])
+        ...mapState(useMusicStore, ['currentSong'])
     },
     render() {
         // console.log(this.$attrs)

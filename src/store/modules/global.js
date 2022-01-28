@@ -1,11 +1,12 @@
 export default {
-    namespaced: true,
-    state: {
-        axiosLoading: false
+    state: () => {
+        return {
+            axiosLoading: false
+        }
     },
-    mutations: {
-        setAxiosLoading(state, loading) {
-            state.axiosLoading = loading
+    actions: {
+        setAxiosLoading(loading) {
+            this.axiosLoading = loading
         }
     }
 }

@@ -5,18 +5,19 @@ import store from './store'
 import './registerServiceWorker'
 
 const app = createApp(App)
+
 // import { EMPTY_IMG } from './utils/common'
 
 // import VueLazyload from 'vue-lazyload'
 // https://element-plus.gitee.io/zh-CN/guide/quickstart.html#按需导入
-import ElementPlus from 'element-plus'
+// import ElementPlus from 'element-plus'
 
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
 import './assets/styles/element-overwrite.scss'
 import './assets/styles/reset.css'
 import './assets/styles/app.scss'
 
-app.use(ElementPlus, { size: 'mini' })
+// app.use(ElementPlus, { size: 'mini' })
 // Vue.use(VueLazyload, {
 //     loading: EMPTY_IMG,
 //     error: EMPTY_IMG

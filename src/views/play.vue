@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from '@/store/helper/music'
+import { useMusicStore } from '@/store'
+import { mapState, mapActions } from 'pinia'
 import SongTable from '../components/song-table.vue'
 
 export default {
@@ -39,7 +40,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['playlist'])
+        ...mapState(useMusicStore, ['playlist'])
     },
     methods: {
         onInputFocus() {
@@ -58,7 +59,7 @@ export default {
         clearAll() {
             this.clearPlaylist()
         },
-        ...mapActions(['clearPlaylist', 'removeSong'])
+        ...mapActions(useMusicStore, ['clearPlaylist', 'removeSong'])
     },
     created() {},
     mounted() {},

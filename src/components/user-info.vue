@@ -44,7 +44,8 @@ import storage from 'good-storage'
 import { UID_KEY } from '../utils/config'
 import { isDef } from '../utils/music'
 import { confirm } from '@/base/confirm.vue'
-import { mapActions, mapState, mapGetters } from '@/store/helper/user'
+import { useUserStore } from '@/store'
+import { mapState, mapActions } from 'pinia'
 
 export default {
     created() {
@@ -82,11 +83,10 @@ export default {
                 this.logout()
             })
         },
-        ...mapActions(['login', 'logout'])
+        ...mapActions(useUserStore, ['login', 'logout'])
     },
     computed: {
-        ...mapState(['user']),
-        ...mapGetters(['isLogin'])
+        ...mapState(useUserStore, ['user', 'isLogin'])
     }
     // components: {}
 }

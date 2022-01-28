@@ -1,12 +1,12 @@
 <template>
-    <el-dialog :modal="false" v-model="visible" class="confirm-dialog">
+    <el-dialog :modal="false" v-model="visible" custom-class="confirm-dialog" width="360px">
         <template #title>
             <div>{{ title || '提示' }}</div>
         </template>
         <div class="confirm-body">{{ text }}</div>
         <template #footer>
             <span class="dialog-footer">
-                <el-button size="mini" @click="confirmAndClose" class="confirm-btn" type="primary">确认</el-button>
+                <el-button @click="confirmAndClose" class="confirm-btn" type="primary">确认</el-button>
             </span>
         </template>
     </el-dialog>

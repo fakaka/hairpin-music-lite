@@ -43,7 +43,8 @@
 
 <script>
 import UserInfo from '../components/user-info.vue'
-import { mapGetters } from '@/store/helper/user'
+import { useUserStore } from '@/store'
+import { mapState } from 'pinia'
 
 export default {
     name: 'music-aside',
@@ -52,7 +53,7 @@ export default {
         return {}
     },
     computed: {
-        ...mapGetters(['isLogin', 'menuPlaylist'])
+        ...mapState(useUserStore, ['isLogin', 'menuPlaylist'])
     },
     methods: {},
     async created() {},

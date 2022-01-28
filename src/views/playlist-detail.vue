@@ -42,7 +42,8 @@
 </template>
 
 <script lang="jsx">
-import { mapActions, mapMutations } from '@/store/helper/music.js'
+import { useMusicStore } from '@/store'
+import { mapState, mapActions } from 'pinia'
 import SongTable from '../components/song-table.vue'
 import { createSong, scrollInto } from '../utils/music'
 import { getListDetail, getSongDetail } from '../api/song'
@@ -123,8 +124,7 @@ export default {
                 return <span class="name-desc">{alias[0]}</span>
             }
         },
-        ...mapMutations(['setPlaylist', 'addPlaylist']),
-        ...mapActions(['startSong'])
+        ...mapActions(useMusicStore, ['startSong', 'setPlaylist', 'addPlaylist'])
     },
     computed: {
         id() {

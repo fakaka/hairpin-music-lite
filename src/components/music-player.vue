@@ -69,9 +69,10 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
+import { useMusicStore } from '@/store'
+import { mapState, mapActions } from 'pinia'
 import Storage from 'good-storage'
-import ProgressBar from '.progress-bar.vue'
+import ProgressBar from './progress-bar.vue'
 import { isDef, pad } from '../utils/music'
 import { playModeMap, VOLUME_KEY } from '../utils/config'
 
@@ -142,7 +143,7 @@ export default {
             this.setCurrentTime(time)
         },
         error(err) {
-            this.$message('播放失败，可能无版权，准备播放下一首')
+            ElMessage('播放失败，可能无版权，准备播放下一首')
             this.songReady = true
             // this.next()
         },
@@ -240,8 +241,14 @@ export default {
             // this.keydown = this.arrKey.join('+')
             e.preventDefault() // 取消浏览器原有的操作
         },
-        ...mapMutations(['setCurrentTime', 'setPlayingState', 'setPlayMode', 'setPlaylistShow', 'setPlayerShow']),
-        ...mapActions(['startSong'])
+        ...mapActions(useMusicStore, [
+            'startSong',
+            'setCurrentTime',
+            'setPlayingState',
+            'setPlayMode',
+            'setPlaylistShow',
+            'setPlayerShow'
+        ])
     },
     watch: {
         currentSong(newSong, oldSong) {
@@ -323,15 +330,16 @@ export default {
              */
             return `${window.location.origin}/share/163?musicId=${this.currentSong.id}`
         },
-        ...mapState([
+        ...mapState(useMusicStore, [
             'currentSong',
             'currentTime',
             'playing',
-            'playMode'
+            'playMode',
             //     'isPlaylistPromptShow',
             //     'isPlayerShow'
-        ]),
-        ...mapGetters(['prevSong', 'nextSong'])
+            'prevSong',
+            'nextSong'
+        ])
     },
     // components: { Share }
     unmounted() {

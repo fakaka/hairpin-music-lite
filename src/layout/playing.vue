@@ -42,7 +42,8 @@
 </template>
 
 <script>
-import { mapMutations, mapActions, mapState } from '@/store/helper/music'
+import { useMusicStore } from '@/store'
+import { mapState, mapActions } from 'pinia'
 import LyricScroller from '../components/lyric-scroller.vue'
 import { getLyric } from '../api/song'
 import lyricParser from '../utils/lrcparser'
@@ -93,7 +94,7 @@ export default {
             }
             return ret
         },
-        ...mapState(['currentSong', 'currentTime'])
+        ...mapState(useMusicStore, ['currentSong', 'currentTime'])
     },
     watch: {
         currentSong(newSong, oldSong) {
