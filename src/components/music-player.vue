@@ -71,7 +71,7 @@
 <script>
 import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
 import Storage from 'good-storage'
-import ProgressBar from '.progress-bar.vue'
+import ProgressBar from './progress-bar.vue'
 import { isDef, pad } from '../utils/music'
 import { playModeMap, VOLUME_KEY } from '../utils/config'
 
