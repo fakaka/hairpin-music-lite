@@ -49,7 +49,7 @@ import { mapState, mapActions } from 'pinia'
 
 export default {
     created() {
-        const uid = storage.get(UID_KEY, '269342361')
+        const uid = storage.get(UID_KEY, '54034393')
         if (isDef(uid)) {
             this.onLogin(uid)
         }
