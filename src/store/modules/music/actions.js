@@ -1,7 +1,7 @@
 import storage from 'good-storage'
-import { getSongImg } from '../../../utils/music'
+import { getSongImg } from '@/utils/music'
 import { notify as notifySong } from '@/utils/notify'
-import { shallowEqual, delDuplicateObj } from '../../../utils/common'
+import { shallowEqual, delDuplicateObj } from '@/utils/common'
 
 export default {
     setCurrentSong(song) {

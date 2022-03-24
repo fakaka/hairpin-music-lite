@@ -1,7 +1,7 @@
 /**
  * 业务工具方法
  */
-import { getAlbum } from '../api/song'
+import { getAlbum } from '@/api/song'
 
 export function isUndef(v) {
     return v === undefined || v === null

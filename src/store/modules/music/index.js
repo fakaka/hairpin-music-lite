@@ -2,7 +2,7 @@ import storage from 'good-storage'
 import * as getters from './getters'
 import actions from './actions'
 
-import { playModeMap } from '../../../utils/config'
+import { playModeMap } from '@/utils/config'
 
 export default {
     state: () => {

@@ -41,8 +41,8 @@
 
 <script>
 import storage from 'good-storage'
-import { UID_KEY } from '../utils/config'
-import { isDef } from '../utils/music'
+import { UID_KEY } from '@/utils/config'
+import { isDef } from '@/utils/music'
 import { confirm } from '@/base/confirm.vue'
 import { useUserStore } from '@/store'
 import { mapState, mapActions } from 'pinia'

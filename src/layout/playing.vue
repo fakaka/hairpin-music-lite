@@ -45,9 +45,9 @@
 import { useMusicStore } from '@/store'
 import { mapState, mapActions } from 'pinia'
 import LyricScroller from '../components/lyric-scroller.vue'
-import { getLyric } from '../api/song'
-import lyricParser from '../utils/lrcparser'
-import { isDef, isUndef } from '../utils/common'
+import { getLyric } from '@/api/song'
+import lyricParser from '@/utils/lrcparser'
+import { isDef, isUndef } from '@/utils/common'
 
 export default {
     name: 'playing',

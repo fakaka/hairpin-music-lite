@@ -45,8 +45,8 @@
 import { useMusicStore } from '@/store'
 import { mapState, mapActions } from 'pinia'
 import SongTable from '../components/song-table.vue'
-import { createSong, scrollInto } from '../utils/music'
-import { getListDetail, getSongDetail } from '../api/song'
+import { createSong, scrollInto } from '@/utils/music'
+import { getListDetail, getSongDetail } from '@/api/song'
 
 import { Plus, Search } from '@element-plus/icons'
 

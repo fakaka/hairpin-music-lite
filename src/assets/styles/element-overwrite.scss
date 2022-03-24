@@ -94,6 +94,7 @@ $input-height: 24px;
     }
     .el-input__prefix {
         i {
+            height: inherit;
             line-height: $input-height + 1px !important;
             color: #{$color} !important;
             transition: none !important;

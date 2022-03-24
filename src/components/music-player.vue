@@ -73,8 +73,8 @@ import { useMusicStore } from '@/store'
 import { mapState, mapActions } from 'pinia'
 import Storage from 'good-storage'
 import ProgressBar from './progress-bar.vue'
-import { isDef, pad } from '../utils/music'
-import { playModeMap, VOLUME_KEY } from '../utils/config'
+import { isDef, pad } from '@/utils/music'
+import { playModeMap, VOLUME_KEY } from '@/utils/config'
 
 const DEFAULT_VOLUME = 75
 export default {
