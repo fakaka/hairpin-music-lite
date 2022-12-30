@@ -41,27 +41,15 @@
     </div>
 </template>
 
-<script>
-import UserInfo from '../components/user-info.vue'
+<script setup>
+import { computed } from 'vue'
 import { useUserStore } from '@/store'
-import { mapState } from 'pinia'
+import UserInfo from '../components/user-info.vue'
 
-export default {
-    name: 'music-aside',
-    props: {},
-    data() {
-        return {}
-    },
-    computed: {
-        ...mapState(useUserStore, ['isLogin', 'menuPlaylist'])
-    },
-    methods: {},
-    async created() {},
-    mounted() {},
-    components: {
-        UserInfo
-    }
-}
+const userStore = useUserStore()
+const menuPlaylist = computed(() => {
+    return userStore.menuPlaylist
+})
 </script>
 
 <style lang="scss" scoped>

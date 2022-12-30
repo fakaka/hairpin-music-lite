@@ -1,14 +1,16 @@
 <template>
     <div id="app">
-        <music-header></music-header>
-        <div class="main">
-            <music-aside></music-aside>
-            <div class="content">
-                <router-view />
+        <el-config-provider size="small">
+            <music-header></music-header>
+            <div class="main">
+                <music-aside></music-aside>
+                <div class="content">
+                    <router-view />
+                </div>
+                <music-playing></music-playing>
             </div>
-            <music-playing></music-playing>
-        </div>
-        <music-footer></music-footer>
+            <music-footer></music-footer>
+        </el-config-provider>
     </div>
 </template>
 

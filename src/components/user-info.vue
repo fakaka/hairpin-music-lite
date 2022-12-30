@@ -2,11 +2,11 @@
     <div class="user">
         <!-- 登录前 -->
         <div @click="onOpenModal" class="login-trigger" v-if="!isLogin">
-            <i class="user-icon iconfont icon-yonghu" />
+            <i class="user-icon iconfont icon-yonghu" ></i>
             <p class="user-name">未登录</p>
         </div>
         <!-- 登录后 -->
-        <div @click="detail" class="logined-user" v-else>
+        <div @click="showDetail" class="logined-user" v-else>
             <img :src="user.avatarUrl" class="avatar" />
             <p class="user-name">{{ user.nickname }}</p>
         </div>
@@ -39,56 +39,49 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import storage from 'good-storage'
 import { UID_KEY } from '@/utils/config'
 import { isDef } from '@/utils/music'
 import { confirm } from '@/base/confirm.vue'
 import { useUserStore } from '@/store'
-import { mapState, mapActions } from 'pinia'
+import { mapState, mapActions, storeToRefs } from 'pinia'
+import { ref } from 'vue'
 
-export default {
-    created() {
-        const uid = storage.get(UID_KEY, '54034393')
-        if (isDef(uid)) {
-            this.onLogin(uid)
-        }
-    },
-    data() {
-        return {
-            visible: false,
-            loading: false,
-            uid: '54034393'
-        }
-    },
-    methods: {
-        onOpenModal() {
-            this.visible = true
-        },
-        onCloseModal() {
-            this.visible = false
-        },
-        async onLogin(uid) {
-            this.loading = true
-            const success = await this.login(uid).finally(() => {
-                this.loading = false
-            })
-            if (success) {
-                this.onCloseModal()
-            }
-        },
-        detail() {
-            // this.$router.push('/user')
-            confirm('确定要注销吗？', () => {
-                this.logout()
-            })
-        },
-        ...mapActions(useUserStore, ['login', 'logout'])
-    },
-    computed: {
-        ...mapState(useUserStore, ['user', 'isLogin'])
+const visible = ref(false)
+
+const uid = ref(storage.get(UID_KEY, '54034393'))
+
+const { user, isLogin } = storeToRefs(useUserStore)
+const userStore = useUserStore()
+
+const onOpenModal = () => {
+    visible.value = true
+}
+const onCloseModal = () => {
+    visible.value = false
+}
+
+const loading = ref(false)
+const onLogin = async (uid) => {
+    loading.value = true
+    const success = await userStore.login(uid).finally(() => {
+        loading.value = false
+    })
+    if (success) {
+        onCloseModal()
     }
-    // components: {}
+}
+
+const showDetail = () => {
+    // this.$router.push('/user')
+    confirm('确定要注销吗？', () => {
+        userStore.logout()
+    })
+}
+
+if (isDef(uid)) {
+    onLogin(uid)
 }
 </script>
 
