@@ -17,11 +17,6 @@ import './assets/styles/element-overwrite.scss'
 import './assets/styles/reset.css'
 import './assets/styles/app.scss'
 
-// app.use(ElementPlus, { size: 'mini' })
-// Vue.use(VueLazyload, {
-//     loading: EMPTY_IMG,
-//     error: EMPTY_IMG
-// })
 import { toRem } from './utils/rem'
 
 // Vue.prototype.$toRem = toRem
